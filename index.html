@@ -543,7 +543,7 @@
     }
     /* Responsive Adjustments */
     @media (max-width: 768px) {
-      .nav-container { flex-direction: column; gap: 0.75rem; }
+      .nav-container { flex-direction: row; gap: 0.75rem; }
       .nav-links { justify-content: center; flex-wrap: wrap; }
       .grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
       main { margin: 1rem auto; }
@@ -757,6 +757,13 @@
       font-size: clamp(0.85rem, 2.5vw, 0.95rem);
       padding: 0.5rem 0.9rem;
     }
+    .carousel-wrapper {
+  touch-action: pan-y; /* Allow vertical scroll, block horizontal interference */
+}
+.carousel-wrapper:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
   </style>
 </head>
 <body>
@@ -1061,7 +1068,8 @@ function createResponsiveCarousel(items, renderItem, opts = {}) {
     autoplayInterval = 4000,
     visibleCountFn = () => (window.innerWidth < 480 ? 1 : (window.innerWidth < 768 ? 2 : 3)),
     ariaLabel = "Carousel",
-    snapToIndividual = true
+    // ⚠️ Force grouping — fix dot count issue
+    snapToIndividual = false // 🔥 Set to false always; use grouping
   } = opts;
 
   const wrapper = document.createElement('div');
@@ -1090,38 +1098,51 @@ function createResponsiveCarousel(items, renderItem, opts = {}) {
   let gap = 16;
   let isAnimating = false;
 
+  // 📏 Update dimensions on resize
   function updateCardDimensions() {
-    const visible = Math.max(1, visibleCountFn());
     const containerWidth = wrapper.clientWidth || window.innerWidth * 0.95;
     gap = parseFloat(getComputedStyle(track).gap) || 16;
+    const visible = Math.max(1, visibleCountFn());
     cardWidth = (containerWidth - gap * (visible - 1)) / visible;
   }
 
-  function goToSlide(index, animate = true) {
+  // 🔁 Clamp index to valid group index
+  function getValidIndex(idx, visible) {
+    const maxIndex = Math.max(0, items.length - visible);
+    return Math.min(Math.max(0, idx), maxIndex);
+  }
+
+  // ➡️ Go to *group* index (not item index)
+  function goToSlide(idx, animate = true) {
     if (isAnimating && animate) return;
-    index = Math.max(0, Math.min(index, items.length - 1));
-    currentIndex = index;
+    const visible = Math.max(1, visibleCountFn());
+    idx = getValidIndex(idx, visible);
+    currentIndex = idx;
+
     if (animate) {
       isAnimating = true;
       track.style.transition = 'transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1)';
     } else {
       track.style.transition = 'none';
     }
+
     const translateX = -(currentIndex * (cardWidth + gap));
     track.style.transform = `translateX(${translateX}px)`;
-    requestAnimationFrame(() => {
-      if (animate) setTimeout(() => isAnimating = false, 450);
-    });
+
+    if (animate) setTimeout(() => isAnimating = false, 450);
     updateIndicators();
   }
 
   function next() {
-    if (currentIndex < items.length - 1) goToSlide(currentIndex + 1);
+    const visible = Math.max(1, visibleCountFn());
+    if (currentIndex < items.length - visible) goToSlide(currentIndex + 1);
   }
+
   function prev() {
     if (currentIndex > 0) goToSlide(currentIndex - 1);
   }
 
+  // 🖼️ Render track
   function renderItems() {
     track.innerHTML = '';
     items.forEach((item, idx) => {
@@ -1132,28 +1153,31 @@ function createResponsiveCarousel(items, renderItem, opts = {}) {
       slide.appendChild(content);
       track.appendChild(slide);
     });
+    // Ensure track is wide enough
     track.style.width = `${items.length * (cardWidth + gap)}px`;
   }
 
+  // ••• Dots: group-based, not item-based
   function updateIndicators() {
     indicators.innerHTML = '';
-    const total = snapToIndividual ? items.length : Math.ceil(items.length / (visibleCountFn() || 1));
-    for (let i = 0; i < total; i++) {
+    const visible = Math.max(1, visibleCountFn());
+    const totalGroups = Math.max(1, Math.ceil(items.length / visible));
+    for (let i = 0; i < totalGroups; i++) {
       const dot = document.createElement('button');
       dot.type = 'button';
-      dot.setAttribute('aria-label', snapToIndividual ? `Go to item ${i + 1}` : `Go to group ${i + 1}`);
+      dot.setAttribute('aria-label', `Go to group ${i + 1}`);
       dot.style.width = '10px';
       dot.style.height = '10px';
       dot.style.borderRadius = '50%';
       dot.style.border = 'none';
-      dot.style.background = (snapToIndividual ? i === currentIndex : Math.floor(currentIndex / (visibleCountFn() || 1)) === i)
-        ? 'var(--primary)' : '#ccc';
+      dot.style.background = (i === Math.floor(currentIndex / visible)) ? 'var(--primary)' : '#ccc';
       dot.style.cursor = 'pointer';
-      dot.onclick = () => goToSlide(snapToIndividual ? i : i * (visibleCountFn() || 1));
+      dot.onclick = () => goToSlide(i * visible);
       indicators.appendChild(dot);
     }
   }
 
+  // ▶️ Buttons
   const prevBtn = document.createElement('button');
   prevBtn.className = 'carousel-btn';
   prevBtn.style.left = '-20px';
@@ -1168,78 +1192,88 @@ function createResponsiveCarousel(items, renderItem, opts = {}) {
   nextBtn.onclick = next;
   nextBtn.setAttribute('aria-label', 'Next');
 
-  // 🖐️ Enhanced swipe with momentum
-  let startX = 0, currentX = 0, velX = 0, timestamp = 0;
+  // 🖐️ TOUCH SWIPE + MOMENTUM (enhanced)
+  let startX = 0, currentX = 0, velX = 0, startTime = 0;
   let rafId = null;
+  let isDragging = false;
 
   function onTouchStart(e) {
-    if (e.touches.length !== 1) return;
+    if (e.touches?.length !== 1) return;
     stopAutoplay();
-    startX = e.touches[0].clientX;
-    currentX = startX;
-    timestamp = Date.now();
+    startX = currentX = e.touches[0].clientX;
+    startTime = Date.now();
+    isDragging = true;
     if (rafId) cancelAnimationFrame(rafId);
     track.style.transition = 'none';
   }
 
   function onTouchMove(e) {
-    if (!startX) return;
+    if (!isDragging) return;
     const x = e.touches[0].clientX;
     const dx = x - startX;
-    velX = (x - currentX) / (Date.now() - timestamp + 1);
+    const dt = Date.now() - startTime;
+    velX = dt > 0 ? (x - currentX) / dt : 0;
     currentX = x;
-    timestamp = Date.now();
 
+    // Allow slight overscroll (elastic)
     const baseX = -currentIndex * (cardWidth + gap);
-    track.style.transform = `translateX(${baseX + dx}px)`;
+    const elasticity = 0.6;
+    const overdx = Math.abs(dx) > 100 ? dx * elasticity : dx;
+    track.style.transform = `translateX(${baseX + overdx}px)`;
   }
 
   function onTouchEnd() {
-    if (!startX) return;
-    const dx = currentX - startX;
-    const absDx = Math.abs(dx);
-    const threshold = cardWidth * 0.2;
+    if (!isDragging) return;
+    isDragging = false;
 
-    if (absDx > 50 || Math.abs(velX) > 0.5) {
-      if (absDx > threshold || velX < -0.5) next();
-      else if (velX > 0.5) prev();
+    const dx = currentX - startX;
+    const dt = Date.now() - startTime;
+    const visible = Math.max(1, visibleCountFn());
+    const threshold = cardWidth * 0.3;
+
+    // Momentum fling: if fast swipe, jump 1 group
+    if (Math.abs(velX) > 0.8 || Math.abs(dx) > threshold) {
+      if (velX < -0.8 || dx < -threshold) next();
+      else if (velX > 0.8 || dx > threshold) prev();
       else goToSlide(currentIndex);
     } else {
       goToSlide(currentIndex);
     }
 
-    startX = 0;
-    if (items.length > 1) startAutoplay();
+    if (items.length > visible) startAutoplay();
   }
 
+  // Add listeners (support both touch & pointer for tablets)
   track.addEventListener('touchstart', onTouchStart, { passive: true });
   track.addEventListener('touchmove', onTouchMove, { passive: true });
   track.addEventListener('touchend', onTouchEnd, { passive: true });
-  track.addEventListener('touchcancel', () => startX = 0, { passive: true });
+  track.addEventListener('touchcancel', () => isDragging = false, { passive: true });
 
-  // 🎹 Keyboard support
+  // 🎹 Keyboard nav
   wrapper.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowRight') next();
     else if (e.key === 'ArrowLeft') prev();
   });
 
+  // 🔄 Resize handler
   const onResize = () => {
     updateCardDimensions();
     renderItems();
     goToSlide(currentIndex, false);
   };
 
+  // ▶️ Autoplay
   function startAutoplay() {
     stopAutoplay();
     if (items.length <= 1) return;
     autoplay = setInterval(() => {
       if (!document.hidden) {
-        if (currentIndex >= items.length - 1) goToSlide(0);
+        const visible = Math.max(1, visibleCountFn());
+        if (currentIndex >= items.length - visible) goToSlide(0);
         else next();
       }
     }, autoplayInterval);
   }
-
   function stopAutoplay() {
     if (autoplay) clearInterval(autoplay);
   }
@@ -1247,6 +1281,7 @@ function createResponsiveCarousel(items, renderItem, opts = {}) {
   wrapper.addEventListener('mouseenter', stopAutoplay);
   wrapper.addEventListener('mouseleave', startAutoplay);
 
+  // 🔧 Init
   updateCardDimensions();
   renderItems();
   goToSlide(0, false);
@@ -1258,7 +1293,7 @@ function createResponsiveCarousel(items, renderItem, opts = {}) {
   wrapper.appendChild(prevBtn);
   wrapper.appendChild(track);
   wrapper.appendChild(nextBtn);
-  if (items.length > (snapToIndividual ? 1 : visibleCountFn())) {
+  if (items.length > visibleCountFn()) {
     wrapper.appendChild(indicators);
   }
 
@@ -1274,6 +1309,7 @@ function createResponsiveCarousel(items, renderItem, opts = {}) {
     }
   };
 }
+
 // 📊 renderCombinedAchievements — unchanged
 function renderCombinedAchievements() {
   const div = document.getElementById('all-achievements');
