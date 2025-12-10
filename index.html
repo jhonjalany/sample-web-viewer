@@ -2,19 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
-  <title>ANHS-SH 2025 Yearbook</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title id="page-title">Section — ANHS-SH 2025</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     :root {
-      --primary: #4a69bd;
-      --primary-dark: #3a59a8;
-      --secondary: #6a89cc;
-      --accent: #55efc4;
-      --light: #f5f6fa;
-      --dark: #2f3542;
-      --glass-bg: rgba(255, 255, 255, 0.85);
-      --glass-border: rgba(255, 255, 255, 0.4);
+      --primary: #e58e26;
+      --primary-dark: #d47a1c;
+      --secondary: #f0a500;
+      --accent: #ffcc00;
+      --light: #fff9e6;
+      --glass-bg: rgba(255, 255, 255, 0.75);
+      --glass-border: rgba(255, 255, 255, 0.3);
       --shadow-sm: 0 4px 12px rgba(0,0,0,0.08);
       --shadow-md: 0 8px 24px rgba(0,0,0,0.12);
       --shadow-lg: 0 16px 40px rgba(0,0,0,0.15);
@@ -23,23 +22,19 @@
       --radius-lg: 16px;
       --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      touch-action: manipulation;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
       line-height: 1.6;
-      background: linear-gradient(135deg, #fafafa, #eef2f7);
-      color: #333;
+      background: linear-gradient(135deg, #fff8e1, #ffecb3);
+      color: #2d2d2d;
       min-height: 100vh;
     }
+
     header {
       background: linear-gradient(120deg, var(--primary), var(--secondary));
       color: white;
-      padding: 1.5rem 2rem;
+      padding: 1.8rem 1.5rem;
       text-align: center;
       box-shadow: var(--shadow-sm);
       position: relative;
@@ -56,17 +51,18 @@
       transform: rotate(30deg);
     }
     header h1 {
-      font-size: clamp(1.8rem, 5vw, 2.4rem);
+      font-size: 2.2rem;
       font-weight: 800;
       letter-spacing: -0.5px;
       text-shadow: 0 2px 4px rgba(0,0,0,0.2);
     }
     header p {
-      font-size: clamp(1.1rem, 3.5vw, 1.2rem);
-      opacity: 0.95;
-      max-width: 700px;
+      font-size: 1.1rem;
+      opacity: 0.9;
+      max-width: 600px;
       margin: 0.5rem auto 0;
     }
+
     nav {
       background: white;
       box-shadow: var(--shadow-sm);
@@ -75,328 +71,328 @@
       z-index: 100;
     }
     .nav-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
       max-width: 1200px;
       margin: 0 auto;
       padding: 0.8rem 1.25rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
     .nav-logo {
+      font-weight: 800;
       font-size: 1.4rem;
-      font-weight: bold;
-      color: var(--primary);
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
       display: flex;
       align-items: center;
       gap: 0.5rem;
     }
-    .nav-links {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-    .nav-links a,
-    .dropdown-btn {
+    .nav-logo i { font-size: 1.2rem; }
+
+    .nav-back a {
       text-decoration: none;
-      color: var(--dark);
-      padding: 0.6rem 1rem;
-      border-radius: var(--radius-sm);
-      transition: var(--transition);
+      color: #555;
       background: var(--glass-bg);
+      padding: 0.6rem 1.2rem;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      backdrop-filter: blur(8px);
       border: 1px solid var(--glass-border);
-      backdrop-filter: blur(6px);
+      transition: var(--transition);
     }
-    .nav-links a:hover,
-    .dropdown-btn:hover {
-      background: rgba(74, 105, 189, 0.12);
+    .nav-back a:hover {
+      background: rgba(229, 142, 38, 0.15);
       color: var(--primary-dark);
       transform: translateY(-1px);
       box-shadow: var(--shadow-sm);
     }
-    /* ===== DROPDOWN ===== */
+
     .dropdown {
       position: relative;
       display: inline-block;
     }
+
+    .dropdown-btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      background: var(--glass-bg);
+      color: #444;
+      padding: 0.65rem 1.25rem;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      text-decoration: none;
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(10px);
+      transition: var(--transition);
+      cursor: pointer;
+      min-width: 140px;
+      text-align: left;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .dropdown-btn:hover,
+    .dropdown-btn:focus {
+      background: linear-gradient(145deg, rgba(229, 142, 38, 0.12), rgba(240, 165, 0, 0.08));
+      color: var(--primary-dark);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+      outline: none;
+    }
+
+    .dropdown-btn::after {
+      content: "▼";
+      font-size: 0.7rem;
+      transition: transform 0.25s ease;
+      transform: translateY(-1px);
+    }
+
+    .dropdown-btn[aria-expanded="true"]::after {
+      transform: rotate(180deg) translateY(1px);
+    }
+
     .dropdown-content {
-      display: none;
       position: absolute;
+      top: calc(100% + 6px);
+      right: 0;
       background: white;
       min-width: 180px;
-      box-shadow: var(--shadow-lg);
       border-radius: var(--radius-md);
+      box-shadow: var(--shadow-lg);
       z-index: 101;
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(12px);
       border: 1px solid var(--glass-border);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-8px);
+      transition: 
+        opacity 0.25s ease,
+        visibility 0.25s,
+        transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       overflow: hidden;
     }
-    .dropdown-content a {
-      display: block;
-      padding: 0.85rem 1.2rem;
-      color: var(--dark);
-      text-decoration: none;
-      transition: var(--transition);
-      border-bottom: 1px solid rgba(0,0,0,0.05);
+
+    .dropdown-btn[aria-expanded="true"] + .dropdown-content {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
     }
+
+    .dropdown-content a {
+      display: flex;
+      align-items: center;
+      padding: 0.85rem 1.25rem;
+      color: #333;
+      text-decoration: none;
+      font-weight: 500;
+      transition: var(--transition);
+      gap: 0.75rem;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+      position: relative;
+    }
+
     .dropdown-content a:last-child {
       border-bottom: none;
     }
-    .dropdown-content a:hover {
-      background: rgba(245, 246, 250, 0.9);
+
+    .dropdown-content a::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--primary);
+      transform: scaleY(0);
+      transform-origin: top;
+      transition: transform 0.25s ease;
+    }
+
+    .dropdown-content a:hover,
+    .dropdown-content a:focus {
+      background: rgba(255, 243, 224, 0.85);
       color: var(--primary-dark);
-      padding-left: 1.3rem;
+      padding-left: 1.35rem;
+      outline: none;
     }
-    /* Desktop hover */
-    .dropdown:hover .dropdown-content {
-      display: block;
+
+    .dropdown-content a:hover::before,
+    .dropdown-content a:focus::before {
+      transform: scaleY(1);
     }
-    /* ===== HAMBURGER & MOBILE MENU ===== */
-    .hamburger-btn {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      color: var(--dark);
-      cursor: pointer;
-      padding: 0.5rem;
-      margin-left: auto;
+
+    .dropdown-content i {
+      color: var(--secondary);
+      font-size: 1rem;
+      width: 1.2em;
+      text-align: center;
+      flex-shrink: 0;
     }
+
     @media (max-width: 768px) {
-      .hamburger-btn {
-        display: block;
+      .nav-container {
+        flex-direction: row;
+        align-items: stretch;
+        gap: 0.75rem;
+        padding: 0.8rem 0.5rem;
       }
-      .nav-links {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: white;
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 1rem 1.5rem;
-        box-shadow: var(--shadow-md);
-        border-bottom: 1px solid #eee;
-        display: none;
-        z-index: 102;
-      }
-      .nav-links.active {
-        display: flex;
-      }
+
+      .nav-logo,
+      .nav-back,
       .dropdown {
         width: 100%;
-        position: relative;
+        text-align: center;
+        justify-content: center;
       }
+
+      .nav-back a,
       .dropdown-btn {
         width: 100%;
-        text-align: left;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        justify-content: center;
       }
+
+      .dropdown {
+        order: 3;
+      }
+
       .dropdown-content {
-        position: static;
-        opacity: 1;
-        visibility: visible;
+        position: relative;
+        top: 6px;
+        box-shadow: var(--shadow-md);
+        border-radius: var(--radius-md);
         max-height: 0;
         overflow: hidden;
-        transition: max-height 0.3s ease, padding 0.3s ease;
-        box-shadow: none;
-        border: none;
-        margin-top: 0.5rem;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        transition: max-height 0.3s ease, padding 0.2s ease;
       }
-      .dropdown-content.active {
+
+      .dropdown-btn[aria-expanded="true"] + .dropdown-content {
         max-height: 500px;
-        padding: 0.5rem 0 0;
+        padding: 0.25rem 0;
       }
+
       .dropdown-content a {
+        justify-content: center;
         padding: 0.75rem 1rem;
-        border-radius: var(--radius-sm);
+        font-size: 0.95rem;
       }
-      .nav-container {
-        flex-wrap: nowrap;
+
+      .dropdown-content i {
+        font-size: 0.9rem;
       }
     }
+
+    @media (max-width: 480px) {
+      .dropdown-content {
+        min-width: 100%;
+        right: 0;
+      }
+    }
+
     main {
-      width: min(98vw, 1400px);
+      max-width: 1500px;
       margin: 2rem auto;
-      padding: 0 clamp(1.5rem, 3vw, 2rem);
+      padding: 0 1.25rem;
     }
-    .section {
-      display: none;
-      animation: fadeIn 0.5s ease-in-out;
+    .section-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
     }
-    .section.active {
-      display: block;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    h2 {
+    .section-header h1 {
+      font-size: 2.4rem;
       color: var(--primary);
-      margin-bottom: 1.5rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 2px solid var(--secondary);
       font-weight: 800;
-      font-size: clamp(1.6rem, 4.2vw, 2rem);
+      margin-bottom: 0.75rem;
     }
-    h3 {
-      font-size: clamp(1.3rem, 3.5vw, 1.6rem);
+    .section-header p {
+      font-size: 1.15rem;
+      color: #555;
+      max-width: 700px;
+      margin: 0 auto;
     }
-    .grid {
+
+    .students-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
       gap: 1.5rem;
-      margin-bottom: 2rem;
     }
-    .card {
+    .student-card {
       background: var(--glass-bg);
       border-radius: var(--radius-md);
       overflow: hidden;
       box-shadow: var(--shadow-sm);
       transition: var(--transition);
       cursor: pointer;
-      border: 1px solid var(--glass-border);
-      backdrop-filter: blur(8px);
-      height: 100%;
-    }
-    .card:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--shadow-md);
-    }
-    .card img {
-      width: 100%;
-      height: 250px;
-      object-fit: contain;
-      object-position: top;
-      display: block;
-      transition: filter 0.3s;
-      aspect-ratio: 3 / 4;
-    }
-    .card:hover img {
-      filter: brightness(1.05);
-    }
-    .card h4 {
-      padding: 1rem;
-      text-align: center;
-      font-size: clamp(0.95rem, 2.8vw, 1.05rem);
-      font-weight: 700;
-      color: #333;
-    }
-    .speech-card, .award-card {
-      background: white;
-      border-radius: var(--radius-md);
-      padding: clamp(1rem, 3vw, 1.5rem);
-      margin-bottom: 1.5rem;
-      box-shadow: var(--shadow-sm);
-      transition: var(--transition);
-    }
-    .speech-card:hover, .award-card:hover {
-      box-shadow: var(--shadow-md);
-      transform: translateY(-2px);
-    }
-    .award-list {
-      margin-left: 1.5rem;
-    }
-    .award-list li {
-      margin-bottom: 0.4rem;
-    }
-    /* 🔥 Enhanced Responsive Memories Grid */
-    .memories-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.25rem;
-      margin-bottom: 2rem;
-    }
-    .carousel-wrapper {
       position: relative;
-      max-width: 95%;
-      margin: 0 auto 2rem;
-      overflow: hidden;
-    }
-    @media (min-width: 768px) {
-      .memories-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      }
-    }
-    @media (min-width: 1024px) {
-      .memories-grid {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      }
-    }
-    @media (min-width: 1200px) {
-      .memories-grid {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      }
-    }
-    .memory-card {
-      background: var(--glass-bg);
-      border-radius: var(--radius-md);
-      overflow: hidden;
-      box-shadow: var(--shadow-sm);
-      transition: var(--transition);
-      cursor: pointer;
-      backdrop-filter: blur(6px);
       border: 1px solid var(--glass-border);
-      height: 100%;
+      backdrop-filter: blur(10px);
+      will-change: transform;
     }
-    .memory-card:hover {
+    .student-card:hover {
       transform: translateY(-6px);
       box-shadow: var(--shadow-md);
     }
-    .memory-card img {
+    .student-card:active {
+      transform: translateY(0) scale(0.98);
+      box-shadow: var(--shadow-lg);
+    }
+    .student-card:focus-visible {
+      outline: 2px solid var(--primary);
+      outline-offset: 2px;
+    }
+    .student-card img {
       width: 100%;
-      height: 100%;
+      height: 180px;
       object-fit: cover;
       object-position: top;
-      border-radius: var(--radius-md) var(--radius-md) 0 0;
-      aspect-ratio: 4 / 3;
+      display: block;
+      transition: var(--transition);
     }
-    .song-box {
-      background: var(--light);
-      padding: clamp(1.5rem, 4vw, 2rem);
-      border-radius: var(--radius-md);
-      font-family: monospace;
-      white-space: pre-line;
-      line-height: 1.7;
-      font-size: clamp(1rem, 2.8vw, 1.1rem);
-      box-shadow: var(--shadow-sm);
+    .student-card:hover img {
+      filter: brightness(1.05);
     }
-    footer {
+    .student-card h3 {
+      padding: 1rem 0.75rem 1.25rem;
       text-align: center;
-      margin-top: 3rem;
-      padding: 1.5rem;
-      background: var(--dark);
-      color: white;
-      border-top: 3px solid var(--primary);
-      font-size: clamp(0.9rem, 2.5vw, 1rem);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #333;
+      line-height: 1.3;
     }
-    /* ✅ MODALS */
+
     .modal {
       display: none;
       position: fixed;
+      z-index: 1000;
       inset: 0;
       background: rgba(0, 0, 0, 0.85);
       backdrop-filter: blur(10px);
       justify-content: center;
       align-items: center;
-      padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+      padding: 1.5rem;
       opacity: 0;
       visibility: hidden;
       transition: opacity 0.3s, visibility 0.3s;
-      z-index: 2000;
     }
     .modal.active {
       opacity: 1;
       visibility: visible;
-      display: flex;
+      display: flex; 
     }
     .modal-content {
       background: white;
       border-radius: var(--radius-lg);
       width: 100%;
-      max-width: min(95vw, 600px);
-      padding: clamp(1rem, 3vw, 2rem);
+      max-width: 550px;
+      padding: 2rem;
       text-align: center;
       position: relative;
       box-shadow: var(--shadow-lg);
@@ -410,32 +406,37 @@
     }
     .close-btn {
       position: absolute;
-      top: clamp(0.75rem, 2vw, 1.25rem);
-      right: clamp(0.75rem, 2vw, 1.25rem);
-      font-size: 1.5rem;
+      top: 1.25rem;
+      right: 1.25rem;
+      font-size: 1.75rem;
       cursor: pointer;
       color: #aaa;
-      width: 44px;
-      height: 44px;
+      width: 36px;
+      height: 36px;
       display: flex;
       align-items: center;
       justify-content: center;
       border-radius: 50%;
       transition: var(--transition);
-      background: rgba(0,0,0,0.08);
-      border: none;
+      background: rgba(0,0,0,0.05);
     }
-    .close-btn:hover,
-    .close-btn:focus {
+    .close-btn:hover {
       color: var(--primary);
-      background: rgba(74, 105, 189, 0.2);
+      background: rgba(229, 142, 38, 0.1);
       transform: rotate(90deg);
-      outline: none;
+    }
+
+    /* Keep focus visible for accessibility, but no rotation */
+    .close-btn:focus {
+      outline: 2px solid var(--primary);
+      outline-offset: 2px;
+      background: rgba(229, 142, 38, 0.1);
+      /* ❌ Do NOT rotate on focus alone */
     }
     .modal-img-wrapper {
       margin: 0 auto 1.5rem;
-      width: clamp(100px, 25vw, 140px);
-      height: clamp(100px, 25vw, 140px);
+      width: 140px;
+      height: 140px;
       border-radius: 50%;
       overflow: hidden;
       box-shadow: var(--shadow-md);
@@ -446,23 +447,23 @@
       object-fit: cover;
       object-position: top;
     }
-    .modal-title {
+    .modal h2 {
       margin-bottom: 0.5rem;
       color: var(--primary);
-      font-size: clamp(1.5rem, 4vw, 1.75rem);
+      font-size: 1.75rem;
       font-weight: 800;
     }
-    .subtitle {
+    .modal p.subtitle {
       color: #666;
-      font-size: clamp(0.9rem, 2.8vw, 1rem);
+      font-size: 1rem;
       margin-bottom: 1.5rem;
     }
     .award-section {
-      margin-top: 1.5rem;
+      margin-top: 1.25rem;
     }
     .award-section h3 {
       color: var(--primary-dark);
-      font-size: clamp(1.15rem, 3vw, 1.25rem);
+      font-size: 1.25rem;
       margin-bottom: 1rem;
       font-weight: 700;
     }
@@ -480,7 +481,7 @@
       padding: 0.5rem 0 0.5rem 2rem;
       position: relative;
       border-bottom: 1px dashed #eee;
-      font-size: clamp(0.85rem, 2.5vw, 0.95rem);
+      font-size: 0.95rem;
     }
     .award-list li:last-child {
       border-bottom: none;
@@ -497,1284 +498,1155 @@
       font-style: italic;
       padding: 1rem;
     }
+
     .view-full-btn {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
       background: linear-gradient(90deg, var(--primary), var(--primary-dark));
       color: white;
-      padding: clamp(0.6rem, 2vw, 0.75rem) clamp(1rem, 4vw, 1.5rem);
+      padding: 0.75rem 1.5rem;
       border-radius: 50px;
       text-decoration: none;
       font-weight: 600;
-      font-size: clamp(0.95rem, 2.8vw, 1rem);
+      font-size: 1rem;
+      margin-top: 1.25rem;
       transition: var(--transition);
-      box-shadow: 0 4px 12px rgba(74, 105, 189, 0.3);
+      box-shadow: 0 4px 12px rgba(229, 142, 38, 0.3);
       border: none;
       cursor: pointer;
     }
     .view-full-btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(74, 105, 189, 0.4);
+      box-shadow: 0 6px 16px rgba(229, 142, 38, 0.4);
     }
     .view-full-btn:active {
       transform: translateY(0);
     }
-    /* Carousel buttons */
-    .carousel-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(0,0,0,0.5);
-      color: white;
-      border: none;
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
+
+    .modal-content > div[style*="display:flex"] {
       display: flex;
+      gap: 0.75rem;
       justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      z-index: 10;
-      transition: background 0.3s;
+      margin-top: 1.25rem;
+      flex-wrap: wrap;
     }
-    .carousel-btn:hover {
-      background: rgba(0,0,0,0.75);
+
+    @media (max-width: 480px) {
+      .modal-content > div[style*="display:flex"] {
+        flex-direction: column;
+      }
+      .modal-content > div[style*="display:flex"] .view-full-btn + .view-full-btn {
+        margin-left: 0;
+        margin-top: 0.5rem;
+      }
     }
-    /* Responsive Adjustments */
+
+    footer {
+      text-align: center;
+      margin-top: 5rem;
+      padding: 1.5rem;
+      background: #2d2d2d;
+      color: #ddd;
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    }
+
     @media (max-width: 768px) {
-      .nav-container { flex-direction: row; gap: 0.75rem; }
-      .nav-links { justify-content: center; flex-wrap: wrap; }
-      .grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
-      main { margin: 1rem auto; }
-      h2 { margin-bottom: 1rem; }
+      header h1 { font-size: 1.9rem; }
+      header p { font-size: 1rem; }
+      .section-header h1 { font-size: 2rem; }
+      .students-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 1.25rem; }
+      .modal-content { padding: 1.5rem; }
+      .modal-img-wrapper { width: 120px; height: 120px; }
     }
     @media (max-width: 480px) {
-      .nav-links { gap: 0.5rem; }
-      .grid { grid-template-columns: repeat(2, 1fr); }
-      .modal-content { max-width: calc(100vw - 2rem); }
-      .modal-img-wrapper { width: 120px; height: 120px; }
-      .view-full-btn { font-size: 0.9rem; padding: 0.6rem 1.2rem; }
-      .memories-grid {
-        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      .students-grid { grid-template-columns: repeat(2, 1fr); }
+      .modal-content {
+        padding: 1.25rem;
+        max-width: calc(100vw - 2rem);
       }
+      .modal-img-wrapper { width: 100px; height: 100px; }
+      .view-full-btn { font-size: 0.95rem; padding: 0.65rem 1.25rem; }
     }
-    @media (max-width: 360px) {
-      .nav-logo { font-size: 1.1rem; gap: 0.3rem; }
-      .nav-logo i { font-size: 1rem; }
-      .grid { gap: 0.75rem; }
-      .card h4 { font-size: 0.9rem; padding: 0.75rem; }
+
+    .award-list::-webkit-scrollbar {
+      width: 6px;
     }
-    /* ===== 3D Carousel Effect ===== */
-    .carousel-3d {
-      perspective: 1200px;
+    .award-list::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 10px;
     }
-    .carousel-3d .card {
-      transform-style: preserve-3d;
-      transition: transform 0.5s ease, box-shadow 0.3s ease;
+    .award-list::-webkit-scrollbar-thumb {
+      background: var(--primary);
+      border-radius: 10px;
     }
-    .carousel-3d .card:hover {
-      transform: translateZ(40px) scale(1.05);
-      box-shadow: var(--shadow-lg);
-      z-index: 2;
-    }
-    .carousel-3d .card:not(:hover) {
-      transform: translateZ(0);
-    }
-    /* ===== ENHANCED ACHIEVEMENT PROFILE CARD ===== */
-    .achievement-profile-card {
-      background: white;
-      border-radius: var(--radius-lg);
-      padding: clamp(1.25rem, 4vw, 1.75rem);
-      text-align: center;
-      box-shadow: var(--shadow-md);
-      transition: var(--transition);
-      max-width: 500px;
-      margin: 0 auto 1.5rem;
-    }
-    .achievement-profile-card:hover {
-      box-shadow: var(--shadow-lg);
-      transform: translateY(-3px);
-    }
-    .achievement-profile-card .card-img-wrapper {
-      width: clamp(100px, 22vw, 140px);
-      height: clamp(100px, 22vw, 140px);
-      margin: 0 auto 1.25rem;
-      border-radius: 50%;
-      overflow: hidden;
-      box-shadow: var(--shadow-md);
-      border: 4px solid white;
-    }
-    .achievement-profile-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top;
-    }
-    .achievement-profile-card .card-title {
-      margin: 0 0 0.35rem;
-      color: var(--primary);
-      font-size: clamp(1.4rem, 3.8vw, 1.6rem);
-      font-weight: 800;
-    }
-    .achievement-profile-card .card-subtitle {
-      color: #666;
-      font-size: clamp(0.9rem, 2.8vw, 1rem);
-      margin-bottom: 1.25rem;
-    }
-    .achievement-profile-card .award-list {
-      text-align: left;
-      max-height: 180px;
-      overflow-y: auto;
-      padding-right: 8px;
-      margin-bottom: 1.25rem;
-    }
-    .achievement-profile-card .award-list ul {
-      list-style: none;
-      padding-left: 0;
-    }
-    .achievement-profile-card .award-list li {
-      padding: 0.5rem 0 0.5rem 2rem;
-      position: relative;
-      border-bottom: 1px dashed #eee;
-      font-size: clamp(0.875rem, 2.6vw, 0.95rem);
-    }
-    .achievement-profile-card .award-list li:last-child {
-      border-bottom: none;
-    }
-    .achievement-profile-card .award-list li::before {
-      content: '★';
-      position: absolute;
-      left: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--accent);
-      font-weight: bold;
-    }
-    /* 🔥 NEW: Achievements Grid — Equal-width responsive rows */
-    .achievements-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-      margin-bottom: 2rem;
-    }
-    @media (min-width: 768px) {
-      .achievements-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-    @media (min-width: 1024px) {
-      .achievements-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-    @media (min-width: 1400px) {
-      .achievements-grid {
-        grid-template-columns: repeat(4, 1fr);
-      }
-    }
-    .achievements-grid .achievement-profile-card {
-      width: 100%;
-      max-width: none;
-      margin: 0;
-    }
-    /* ===== Enhanced Achievements Section ===== */
-    .achievements-container {
-      display: flex;
-      flex-direction: column;
-      gap: 2.25rem;
-    }
-    .achievement-section-header {
-      background: var(--glass-bg);
-      padding: 1rem 1.5rem;
-      border-radius: var(--radius-md);
-      border-left: 4px solid var(--primary);
-      margin-bottom: 1.25rem;
-    }
-    .achievement-section-header h3 {
-      margin: 0;
-      font-weight: 800;
-      color: var(--primary-dark);
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
-    .award-card {
-      background: white;
-      border-radius: var(--radius-md);
-      padding: 1.25rem;
-      margin-bottom: 1rem;
-      box-shadow: var(--shadow-sm);
-      transition: var(--transition);
-    }
-    .award-card:hover {
-      box-shadow: var(--shadow-md);
-      transform: translateY(-2px);
-    }
-    .award-card h3 {
-      margin: 0 0 0.75rem;
-      color: var(--primary);
-      font-weight: 700;
-      font-size: 1.25rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    .award-card h3 small {
-      font-weight: normal;
-      color: #777;
-      font-size: 0.875rem;
-    }
-    .award-list {
-      list-style: none;
-      padding-left: 0;
-    }
-    .award-list li {
-      padding-left: 1.75rem;
-      position: relative;
-      margin-bottom: 0.4rem;
-      color: #444;
-      font-size: 0.95rem;
-    }
-    .award-list li::before {
-      content: '✓';
-      position: absolute;
-      left: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 20px;
-      height: 20px;
-      background: var(--accent);
-      color: #222;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-      font-size: 0.7rem;
-    }
-    .award-card .view-full-btn {
-      font-size: clamp(0.85rem, 2.5vw, 0.95rem);
-      padding: 0.5rem 0.9rem;
-    }
-    .carousel-wrapper {
-  touch-action: pan-y; /* Allow vertical scroll, block horizontal interference */
+
+    
+    /* ===== Back to Top Button ===== */
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 52px;
+  height: 52px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: 
+    opacity 0.3s ease,
+    visibility 0.3s,
+    transform 0.3s ease,
+    background 0.2s;
+  z-index: 999;
 }
-.carousel-wrapper:focus {
-  outline: 2px solid var(--primary);
-  outline-offset: 2px;
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
+.back-to-top:hover {
+  background: var(--primary-dark);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: var(--shadow-lg);
+}
+
+/* ===== Floating Share Bar ===== */
+.share-bar {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 998;
+}
+.share-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: white;
+  border: 2px solid var(--glass-border);
+  color: var(--primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition: var(--transition);
+}
+.share-btn:hover {
+  background: var(--primary);
+  color: white;
+  transform: scale(1.1);
+  box-shadow: var(--shadow-md);
+}
+.share-btn:active {
+  transform: scale(1);
+}
+
+/* Responsive: hide share bar on very small screens */
+@media (max-width: 380px) {
+  .share-bar { display: none; }
+}
+
   </style>
 </head>
 <body>
+
 <header>
-  <h1>ANHS-SH Graduating Class of 2025</h1>
-  <p>Forever Grateful, Forever Proud</p>
+  <h1 id="section-title">Section</h1>
+  <!-- ✅ Change here -->
+  <p id="section-tagline">Class of 2025 — <span id="section-motto">Loading…</span></p>
 </header>
+
 <nav>
   <div class="nav-container">
     <div class="nav-logo">
-      <i class="fas fa-graduation-cap"></i> ANHS-Yearbook
+      <!-- ✅ Change here -->
+      <i class="fas fa-graduation-cap"></i>
+      ANHS-SH-Yearbook
     </div>
-    <button id="hamburger" class="hamburger-btn" aria-label="Toggle navigation menu" aria-expanded="false">
-      <i class="fas fa-bars"></i>
-    </button>
-    <div class="nav-links" id="navLinks">
-      <a href="#" onclick="showSection('overview')">Overview</a>
+    <div class="nav-actions">
+      <div class="nav-back">
+        <a href="index.html">
+          <i class="fas fa-arrow-left"></i> Home
+        </a>
+      </div>
       <div class="dropdown">
-        <button class="dropdown-btn" aria-expanded="false" aria-haspopup="true">
-          Sections ▼
-        </button>
-        <div class="dropdown-content">
-          <a href="?section=leo" target="_blank">Leo</a>
-          <a href="?section=aquarius" target="_blank">Aquarius</a>
-          <a href="?section=aries" target="_blank">Aries</a>
-          <a href="?section=capricorn" target="_blank">Capricorn</a>
-          <a href="?section=gemini" target="_blank">Gemini</a>
-          <a href="?section=libra" target="_blank">Libra</a>
-          <a href="?section=saguitarius" target="_blank">Sagittarius</a>
-          <a href="?section=taurus" target="_blank">Taurus</a>
-          <a href="?section=virgo" target="_blank">Virgo</a>
+        <button id="dropdownBtn" class="dropdown-btn" aria-haspopup="true" aria-expanded="false" aria-label="Navigate sections">Sections</button>
+        <div id="dropdownContent" class="dropdown-content" role="menu">
+          <!-- Filled dynamically -->
         </div>
       </div>
-      <a href="#" onclick="showSection('achievement')">Achievements</a>
-      <a href="#" onclick="showSection('teachers')">Teachers</a>
-      <a href="#" onclick="showSection('speeches')">Speeches</a>
-      <a href="#" onclick="showSection('memories')">Memories</a>
-      <a href="#" onclick="showSection('song')">Graduation Song</a>
     </div>
   </div>
 </nav>
+
 <main>
-  <!-- Overview -->
-  <section id="overview" class="section active">
-    <h2>🎓 Overview</h2>
-    <div id="overview-school-banner"></div>
-    <h3>Top Students</h3>
-    <div id="overview-students"></div>
-    <h3>Teachers</h3>
-    <div id="overview-teachers"></div>
-    <h3>Top Achiever</h3>
-    <div id="top-achiever" class="speech-card"></div>
-    <h3>Featured Speech</h3>
-    <div id="featured-speech"></div>
-    <h3>Memories</h3>
-    <div id="overview-memories"></div>
+  <section class="section-header">
+    <h1 id="students-title">Meet Our Stars</h1>
   </section>
-  <!-- Achievement -->
-  <section id="achievement" class="section">
-    <h2>🏆 Achievements & Awards</h2>
-    <div id="all-achievements" class="achievements-container"></div>
-  </section>
-  <!-- Teachers -->
-  <section id="teachers" class="section">
-    <h2>🧑‍🏫 Teachers</h2>
-    <div class="grid" id="all-teachers"></div>
-  </section>
-  <!-- Speeches -->
-  <section id="speeches" class="section">
-    <h2>🎤 Speeches</h2>
-    <div id="all-speeches"></div>
-  </section>
-  <!-- Memories -->
-  <section id="memories" class="section">
-    <h2>📸 Memories</h2>
-    <div class="memories-grid" id="all-memories"></div>
-  </section>
-  <!-- Graduation Song -->
-  <section id="song" class="section">
-    <h2>🎵 Graduation Song</h2>
-    <div class="song-box" id="grad-song"></div>
-  </section>
+  <div class="students-grid" id="students-container"></div>
 </main>
-<!-- MODALS -->
+
+<!-- Main Student Modal -->
 <div id="studentModal" class="modal" role="dialog" aria-labelledby="modal-title" aria-modal="true">
   <div class="modal-content">
     <button class="close-btn" id="closeModal" aria-label="Close modal">
       <i class="fas fa-times"></i>
     </button>
     <div class="modal-img-wrapper">
-      <img id="modal-img" src="" alt="" loading="lazy" />
+      <img id="modal-img" src="" alt="" />
     </div>
     <h2 id="modal-name" class="modal-title">Student Name</h2>
     <p id="modal-subtitle" class="subtitle">Section • Class of 2025</p>
     <div id="modal-awards"></div>
   </div>
 </div>
-<div id="fullscreenModal" class="modal" role="dialog" aria-modal="true">
+
+<!-- Fullscreen Image Modal -->
+<div id="fullscreenImageModal" class="modal" role="dialog" aria-labelledby="fullscreen-modal-title" aria-modal="true">
   <div style="position:relative;width:100%;height:100%;display:flex;justify-content:center;align-items:center;background:black;">
-    <button id="closeFullscreenBtn" class="close-btn" style="position:absolute;top:1rem;right:1rem;z-index:10;" aria-label="Close full image">
+    <button id="closeFullscreenModal" class="close-btn" style="position:absolute;top:1rem;right:1rem;z-index:10;" aria-label="Close full image">
       <i class="fas fa-times"></i>
     </button>
-    <img id="fullscreenImg" src="" alt="" loading="lazy"
-         style="max-width:95vw;max-height:calc(100vh - 4rem);object-fit:contain;border-radius:8px;" />
+    <img id="fullscreenImg" src="" alt="" style="max-width:95vw;max-height:90vh;object-fit:contain;border-radius:8px;" />
   </div>
 </div>
+
+
+<!-- Back to Top Button -->
+<button id="backToTopBtn" class="back-to-top"
+        aria-label="Scroll to top"
+        title="Back to Top">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
+<!-- Social Share Container (Floating) -->
+<div id="shareBar" class="share-bar">
+  <button id="copyLinkBtn" class="share-btn" title="Copy page link" aria-label="Copy link">
+    <i class="fas fa-link"></i>
+  </button>
+  <button id="shareNativeBtn" class="share-btn" title="Share via device" aria-label="Share" 
+          style="display: none;"> <!-- Hidden on unsupported browsers -->
+    <i class="fas fa-share-alt"></i>
+  </button>
+</div>
+
 <footer>
-  <p>© 2025 ANHS-SH Senior High Yearbook | Made with ❤️ for the Class of 2025</p>
+  <!-- ✅ Change here -->
+  <p>© 2025 ANHS Senior High Yearbook | <span id="footer-section">Section</span> Section</p>
 </footer>
+
 <script>
-// 📚 Data — unchanged
-const students = {
-  "aquarius": [{ img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aquarius/Ashley_A._Rinos.webp", name: "Ashley A. Rinos" },
-   { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/taurus/Arianne_Mae_V._Austero.webp", name: "Arianne Mae V. Austero" }/* ... */],
-  "aries": [{ img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aries/Aira_B._Delon.webp", name: "Aira B. Delon" }, /* ... */],
-  "capricorn": [{ img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/capricorn/Aaron_P._Atienza.webp", name: "Aaron P. Atienza" }, /* ... */],
-  "gemini": [{ img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/gemini/Angelou_S._Daniel.webp", name: "Angelou S. Daniel" }, /* ... */],
-  "leo": [{ img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/leo/Aira_B._De_Paz.webp", name: "Aira B. De Paz" }, /* ... */],
-  "libra": [{ img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/libra/A-J_F._Lucapa.webp", name: "A-J F. Lucapa" }, /* ... */],
-  "saguitarius": [{ img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/saguitarius/Adeliza_D._Mendoza.webp", name: "Adeliza D. Mendoza" }, /* ... */],
-  "taurus": [{ img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/taurus/Alkhilies_V._Tingcungco.webp", name: "Alkhilies V. Tingcungco" }, /* ... */],
-  "virgo": [{ img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/virgo/ABUANA,_CAMILLE_.webp", name: "ABUANA, CAMILLE" }, /* ... */]
-};
-const topStudents = [
+// 🔁 Universal: Get section from URL (e.g. ?section=leo) or fallback
+function getSectionFromURL() {
+  const urlParams = new URLSearchParams(window.location.search);
+  //✅ Change here as default
+  let section = urlParams.get('section')?.toLowerCase() || 'aries';
+  // Validate: only allow known sections
+  //✅ Change here
+  if (!sectionsData[section]) section = 'aries';
+  return section;
+}
+
+// 📚 Centralized Data (All sections + awards)
+//✅ Change here
+const sectionsData = {
+  aquarius: {
+    title: "Aquarius Section",
+    motto: "Innovative, Independent, Visionary",
+    colorPrimary: "#4a90e2",
+    colorPrimaryDark: "#2a6bbd",
+    students: [
+      { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aquarius/Adrian_D._Gallos.webp", name: "Adrian D. Gallos" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aquarius/Aldred_C._Salcedo.webp", name: "Aldred C. Salcedo" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aquarius/Andray_A._Realino.webp", name: "Andray A. Realino" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aquarius/Angel_L._Gabrera.webp", name: "Angel L. Gabrera" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aquarius/Antonia_Louisse_R._Mendoza.webp", name: "Antonia Louisse R. Mendoza" },
   { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aquarius/Ashley_A._Rinos.webp", name: "Ashley A. Rinos" },
-  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aquarius/Aldred_C._Salcedo.webp", name: "Aldred C. Salcedo" },
-  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aries/Aira_B._Delon.webp", name: "Aira B. Delon" },
-  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aquarius/Aldred_C._Salcedo.webp", name: "Aldred C. Salcedo" },
-  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/gemini/Angelou_S._Daniel.webp", name: "Angelou S. Daniel" },
-  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aquarius/Aldred_C._Salcedo.webp", name: "Aldred C. Salcedo" }
-];
-const teachers = [
-  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/libra/Frenz_Jay_O._Felizarta.webp", name: "Frenz Jay O. Felizarta", section_name: "None" },
-  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/libra/Fritz_N._Dioso.webp", name: "Fritz N. Dioso", section_name: "Aquarius" },
-  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/libra/Izzy_N._Robes.webp", name: "Izzy N. Robes", section_name: "Capricorn" },
-  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/taurus/Andrie_Ken_C._Donayre.webp", name: "Andrie Ken C. Donayre", section_name: "Capricorn" },
-  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/taurus/Angelou_B._Montana.webp", name: "Angelou B. Montana", section_name: "Capricorn" },
-  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/taurus/Arianne_Mae_V._Austero.webp", name: "Arianne Mae V. Austero", section_name: "Capricorn" },
-  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/taurus/Chris_John_D._Mayola.webp", name: "Chris John D. Mayola", section_name: "Capricorn" }
-];
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aquarius/Ashley_A._Riños.webp", name: "Ashley A. Riños" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aquarius/Bernard_Jr._M._Padoga.webp", name: "Bernard Jr. M. Padoga" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aquarius/Cherry_Ann_B._Adonis.webp", name: "Cherry Ann B. Adonis" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aquarius/Cheska_R._Cecilio.webp", name: "Cheska R. Cecilio" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aquarius/Christal_Mae_T._Loreno.webp", name: "Christal Mae T. Loreno" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aquarius/Christal_Mae_T._Loreño.webp", name: "Christal Mae T. Loreño" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aquarius/Christian_James_D._Reas.webp", name: "Christian James D. Reas" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aquarius/Daisy_Jane_T._Mansinadez.webp", name: "Daisy Jane T. Mansinadez" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aquarius/Dinna_C._Dancil.webp", name: "Dinna C. Dancil" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aquarius/Felicity_Zoe_M._Palen.webp", name: "Felicity Zoe M. Palen" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aquarius/Genos_Denver_A._Hinunangan.webp", name: "Genos Denver A. Hinunangan" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aquarius/Gerard_Alvin_R._Elmido.webp", name: "Gerard Alvin R. Elmido" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aquarius/Hans_Jespher_A._Alfante.webp", name: "Hans Jespher A. Alfante" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aquarius/Harold_P._Luma-as.webp", name: "Harold P. Luma-as" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aquarius/Jasson_Kim_O._Bayot.webp", name: "Jasson Kim O. Bayot" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aquarius/Jay_P._Degrano.webp", name: "Jay P. Degrano" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aquarius/Jayson_A._Obias.webp", name: "Jayson A. Obias" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aquarius/Jhonson_A._Guillano.webp", name: "Jhonson A. Guillano" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aquarius/John_Airon_D._Gadon.webp", name: "John Airon D. Gadon" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aquarius/John_Steven_M._Tomines.webp", name: "John Steven M. Tomines" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aquarius/Jovy_S._Portugaliza.webp", name: "Jovy S. Portugaliza" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aquarius/Justinne_Caryl_G._Palana.webp", name: "Justinne Caryl G. Palana" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aquarius/Justinne_Caryl_G._Palaña.webp", name: "Justinne Caryl G. Palaña" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aquarius/Khevin_Paul_C._Sanico.webp", name: "Khevin Paul C. Sanico" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aquarius/Lady_Charcassie_O._Cabal.webp", name: "Lady Charcassie O. Cabal" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aquarius/Lady_Hone_T._Macasocol.webp", name: "Lady Hone T. Macasocol" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aquarius/Lance_C._Cabilogan.webp", name: "Lance C. Cabilogan" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aquarius/Lean_Paul_P._Reyes.webp", name: "Lean Paul P. Reyes" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aquarius/Lorlie_Jane_E._Opada.webp", name: "Lorlie Jane E. Opada" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aquarius/Maria_Mae_P._Laher.webp", name: "Maria Mae P. Laher" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aquarius/Mark_Justine_C._Amano.webp", name: "Mark Justine C. Amano" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aquarius/Mark_Stevin_J._Robin.webp", name: "Mark Stevin J. Robin" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aquarius/Merian_N._Costin.webp", name: "Merian N. Costin" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aquarius/Nicole_S._Tobias.webp", name: "Nicole S. Tobias" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aquarius/Princess_Nazzariane_A._Cabsag.webp", name: "Princess Nazzariane A. Cabsag" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aquarius/Princezz_Ellyn_V._Carino.webp", name: "Princezz Ellyn V. Carino" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aquarius/Princezz_Ellyn_V._Cariño.webp", name: "Princezz Ellyn V. Cariño" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aquarius/Richard_P._Guston.webp", name: "Richard P. Guston" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aquarius/Rodeliza_D._Abilay.webp", name: "Rodeliza D. Abilay" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aquarius/Vince_Patrick_L._Edloy.webp", name: "Vince Patrick L. Edloy" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aquarius/Yuri_Gwen_B._Pinote.webp", name: "Yuri Gwen B. Pinote" }
+    ]
+  },
+  aries: {
+    title: "Aries Section",
+    motto: "Bold, Energetic, Trailblazing",
+    colorPrimary: "#e74c3c",
+    colorPrimaryDark: "#c0392b",
+    students: [
+      { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aries/Aira_B._Delon.webp", name: "Aira B. Delon" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aries/Alnie_L._Arabis.webp", name: "Alnie L. Arabis" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aries/Alyssa_D._Elmido.webp", name: "Alyssa D. Elmido" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aries/Anna_Jane_A._Rubes.webp", name: "Anna Jane A. Rubes" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aries/Annie_Rose_T._Delgado.webp", name: "Annie Rose T. Delgado" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aries/Apple_Jane_D,_Declaro.webp", name: "Apple Jane D, Declaro" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aries/Apple_P._Hermida.webp", name: "Apple P. Hermida" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aries/Bianca_G._Tagarao.webp", name: "Bianca G. Tagarao" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aries/Cassandra_Juliane_T._Donayre.webp", name: "Cassandra Juliane T. Donayre" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aries/Catherine_N._Humawid.webp", name: "Catherine N. Humawid" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aries/Christine_Alexis_T._Monleon.webp", name: "Christine Alexis T. Monleon" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aries/Cindy_B._Anonuevo.webp", name: "Cindy B. Anonuevo" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aries/Cindy_B._Añonuevo.webp", name: "Cindy B. Añonuevo" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aries/Cyrah_Jane_M._Remandaban.webp", name: "Cyrah Jane M. Remandaban" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aries/Edmar_D._Gonzaga.webp", name: "Edmar D. Gonzaga" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aries/Francis_Tutor.webp", name: "Francis Tutor" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aries/Frencess_Mae_A._Gloria.webp", name: "Frencess Mae A. Gloria" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aries/Isaiah_Chayanne_George_Kyle_G._Cerena.webp", name: "Isaiah Chayanne George Kyle G. Cerena" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aries/JADE_B._CABAL.webp", name: "JADE B. CABAL" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aries/JOSE,_RANGLE.webp", name: "JOSE, RANGLE" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aries/Janelle_Rian_A._Beronilla.webp", name: "Janelle Rian A. Beronilla" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aries/Jecelyn_P._Gonzales.webp", name: "Jecelyn P. Gonzales" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aries/Jeil_C._Alvero.webp", name: "Jeil C. Alvero" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aries/Jesselle_D._Gubat.webp", name: "Jesselle D. Gubat" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aries/Joan_L._Sellar.webp", name: "Joan L. Sellar" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aries/John_C._Rebojo.webp", name: "John C. Rebojo" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aries/John_Mark_R._Lawag.webp", name: "John Mark R. Lawag" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aries/Jussel_Fiona_L._Altejar.webp", name: "Jussel Fiona L. Altejar" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aries/Kate_Nathalie_B._Rapada.webp", name: "Kate Nathalie B. Rapada" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aries/Kathleen_C._Cozares.webp", name: "Kathleen C. Cozares" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aries/Kent_Joshua_R._Belanigue.webp", name: "Kent Joshua R. Belanigue" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aries/Kim_Alexis_M._Tobia.webp", name: "Kim Alexis M. Tobia" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aries/Kimberly_Anne_D._Casas.webp", name: "Kimberly Anne D. Casas" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aries/Krystal_A._Japson.webp", name: "Krystal A. Japson" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aries/Leliza_Jean_N._Durias.webp", name: "Leliza Jean N. Durias" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aries/Lyza_M._Bolano.webp", name: "Lyza M. Bolano" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aries/Lyza_M._Bolaño.webp", name: "Lyza M. Bolaño" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aries/Mark_Lorence_R._Soria.webp", name: "Mark Lorence R. Soria" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aries/Michael_B._Surabia.webp", name: "Michael B. Surabia" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aries/Nicole_Ann_R._Cabahug.webp", name: "Nicole Ann R. Cabahug" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aries/Renelyn_A._Madula.webp", name: "Renelyn A. Madula" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aries/Rhedge_N._Laperag.webp", name: "Rhedge N. Laperag" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aries/Rhena_Mae_Bahinting.webp", name: "Rhena Mae Bahinting" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aries/Ricky_Boy_L._Sabili.webp", name: "Ricky Boy L. Sabili" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aries/Roxan_C._Ritaga.webp", name: "Roxan C. Ritaga" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aries/Stephanie_G._Dioso.webp", name: "Stephanie G. Dioso" }
+    ]
+  },
+
+  capricorn: {
+    title: "Capricorn Section",
+    motto: "Disciplined, Ambitious, Resilient",
+    colorPrimary: "#34495e",
+    colorPrimaryDark: "#2c3e50",
+    students: [
+      { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/capricorn/Aaron_P._Atienza.webp", name: "Aaron P. Atienza" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/capricorn/Allison_Fate_P._Dalugdugan.webp", name: "Allison Fate P. Dalugdugan" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/capricorn/Althea_Genesis_S._Tarinque.webp", name: "Althea Genesis S. Tarinque" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/capricorn/Angelene_B._Risos.webp", name: "Angelene B. Risos" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/capricorn/Anghelo_L._Olita.webp", name: "Anghelo L. Olita" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/capricorn/April_Jean_E._Delgado.webp", name: "April Jean E. Delgado" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/capricorn/Crystal_S._Madrona.webp", name: "Crystal S. Madrona" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/capricorn/Cyrine_A._Tejero.webp", name: "Cyrine A. Tejero" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/capricorn/Darwin_S._Castro.webp", name: "Darwin S. Castro" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/capricorn/Daryl_S._Alas.webp", name: "Daryl S. Alas" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/capricorn/Donald_C._Larioque.webp", name: "Donald C. Larioque" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/capricorn/Edcin_E._Alcoser.webp", name: "Edcin E. Alcoser" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/capricorn/Edwin_N._Elmido.webp", name: "Edwin N. Elmido" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/capricorn/Glenn_V._Redrendo.webp", name: "Glenn V. Redrendo" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/capricorn/Ivan_D._Benusa.webp", name: "Ivan D. Benusa" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/capricorn/Jamilla_Nicole_R._Cabrera_.webp", name: "Jamilla Nicole R. Cabrera " },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/capricorn/Janelle_R._Rivera.webp", name: "Janelle R. Rivera" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/capricorn/Jenny_M._Quano.webp", name: "Jenny M. Quano" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/capricorn/Jenybe_E._Bug-atan.webp", name: "Jenybe E. Bug-atan" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/capricorn/Jerome_M._Bracero.webp", name: "Jerome M. Bracero" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/capricorn/Jessil_E._Canuday.webp", name: "Jessil E. Canuday" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/capricorn/Jhun_Rennan_D._De_Paz.webp", name: "Jhun Rennan D. De Paz" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/capricorn/Junny_Boy_L._Cabintoy.webp", name: "Junny Boy L. Cabintoy" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/capricorn/Kelvin_Jay_R._Pernites.webp", name: "Kelvin Jay R. Pernites" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/capricorn/M-Jay_J._Mediona.webp", name: "M-Jay J. Mediona" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/capricorn/Ma._Cherry_C._Perez.webp", name: "Ma. Cherry C. Perez" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/capricorn/Malou_U._Olazo.webp", name: "Malou U. Olazo" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/capricorn/Marian_Nicol_P._Lomonsod.webp", name: "Marian Nicol P. Lomonsod" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/capricorn/Mark_Gary_M._Mistula.webp", name: "Mark Gary M. Mistula" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/capricorn/Mark_L._Fuentes.webp", name: "Mark L. Fuentes" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/capricorn/Nenien_Joy_A._Cagna-an.webp", name: "Nenien Joy A. Cagna-an" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/capricorn/Nicole_B._Balano.webp", name: "Nicole B. Balano" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/capricorn/Paul_R._Beyong.webp", name: "Paul R. Beyong" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/capricorn/Rannie_M._Alvero.webp", name: "Rannie M. Alvero" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/capricorn/Rexander_B._Espina.webp", name: "Rexander B. Espina" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/capricorn/Rico_Jay_F._Porazo.webp", name: "Rico Jay F. Porazo" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/capricorn/Rochell_C._Ritaga.webp", name: "Rochell C. Ritaga" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/capricorn/Ronel_S._Ampong.webp", name: "Ronel S. Ampong" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/capricorn/Ronie_E._Turado.webp", name: "Ronie E. Turado" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/capricorn/Rouna_Joy_M._Golo.webp", name: "Rouna Joy M. Golo" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/capricorn/Ruffa_mae_L._Aluyog.webp", name: "Ruffa mae L. Aluyog" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/capricorn/Vincent_D._Dagcutan.webp", name: "Vincent D. Dagcutan" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/capricorn/Vincent_Rafael_L._Laderas.webp", name: "Vincent Rafael L. Laderas" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/capricorn/Weslie_Vertudazo.webp", name: "Weslie Vertudazo" }
+    ]
+   },
+   gemini: {
+    title: "Gemini Section",
+    motto: "Curious, Expressive, Versatile",
+    colorPrimary: "#3498db",
+    colorPrimaryDark: "#2980b9",
+    students: [
+     { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/gemini/Angelou_S._Daniel.webp", name: "Angelou S. Daniel" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/gemini/Chris_Andrie_D._Terante.webp", name: "Chris Andrie D. Terante" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/gemini/Christian_B._Dublas.webp", name: "Christian B. Dublas" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/gemini/Edison_Jr._R._Caspe.webp", name: "Edison Jr. R. Caspe" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/gemini/Elgie_Lacbayo.webp", name: "Elgie Lacbayo" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/gemini/Fate_Gerald_P._Gonzaga.webp", name: "Fate Gerald P. Gonzaga" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/gemini/Francis_Mel_T._Corayag.webp", name: "Francis Mel T. Corayag" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/gemini/Gino_A._Escuadra.webp", name: "Gino A. Escuadra" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/gemini/Isagani_C._Andales.webp", name: "Isagani C. Andales" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/gemini/Jairus_Kylle_E._Tomines.webp", name: "Jairus Kylle E. Tomines" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/gemini/James_Ashley_M._Elmido.webp", name: "James Ashley M. Elmido" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/gemini/James_F._Dublon.webp", name: "James F. Dublon" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/gemini/James_N._Diaz.webp", name: "James N. Diaz" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/gemini/Jason_C._Terante.webp", name: "Jason C. Terante" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/gemini/Jaymark_R._Bansig.webp", name: "Jaymark R. Bansig" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/gemini/Jessie_Jr._M._Cuizon.webp", name: "Jessie Jr. M. Cuizon" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/gemini/John_Dave_L._Delgado.webp", name: "John Dave L. Delgado" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/gemini/John_Rey_D._Yayon.webp", name: "John Rey D. Yayon" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/gemini/Joshua_P._Ceda.webp", name: "Joshua P. Ceda" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/gemini/Jude_Mark_Z._Diaz.webp", name: "Jude Mark Z. Diaz" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/gemini/Jumong_P._Sarzuela.webp", name: "Jumong P. Sarzuela" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/gemini/Junnard_Robert_H._Liporada.webp", name: "Junnard Robert H. Liporada" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/gemini/Junray_Jr._A._Cantilang.webp", name: "Junray Jr. A. Cantilang" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/gemini/Kain_Carlo_J._Grospe.webp", name: "Kain Carlo J. Grospe" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/gemini/Kyle_Shane_Delgado.webp", name: "Kyle Shane Delgado" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/gemini/Mark_John_P._Norega.webp", name: "Mark John P. Norega" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/gemini/Nevada_Dawn_James_Padero.webp", name: "Nevada Dawn James Padero" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/gemini/Prince_Ronald_D._Labides.webp", name: "Prince Ronald D. Labides" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/gemini/R-Jay_M._Ruanes.webp", name: "R-Jay M. Ruanes" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/gemini/Rasel_D._Villezas.webp", name: "Rasel D. Villezas" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/gemini/Ronald_L._Barcelon.webp", name: "Ronald L. Barcelon" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/gemini/Ronron_B._Rufil.webp", name: "Ronron B. Rufil" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/gemini/Rowel_L._Diaz.webp", name: "Rowel L. Diaz" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/gemini/Roziel_mae_A._Barrio.webp", name: "Roziel mae A. Barrio" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/gemini/Ruben_N._Barquin.webp", name: "Ruben N. Barquin" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/gemini/Ryan_C._Naval.webp", name: "Ryan C. Naval" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/gemini/Rytchil_N._Catayas.webp", name: "Rytchil N. Catayas" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/gemini/Stephen_Jr._C._Robin.webp", name: "Stephen Jr. C. Robin" }
+    ]
+   },
+   leo: {
+    title: "Leo Section",
+    motto: "Courageous, Confident, Charismatic",
+    colorPrimary: "#d47a1c",
+    colorPrimaryDark: "#b85f0d",
+    students: [
+     { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/leo/Aira_B._De_Paz.webp", name: "Aira B. De Paz" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/leo/Aldrin_Jay_A._Salmoro.webp", name: "Aldrin Jay A. Salmoro" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/leo/Angelie_D._Realino.webp", name: "Angelie D. Realino" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/leo/Archie_A._Corpin.webp", name: "Archie A. Corpin" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/leo/Chamille_D._Olarte.webp", name: "Chamille D. Olarte" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/leo/Cristopher_A._Porcadilla.webp", name: "Cristopher A. Porcadilla" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/leo/Crystal_N._Cabia.webp", name: "Crystal N. Cabia" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/leo/Erna_Mae_V._Alajas.webp", name: "Erna Mae V. Alajas" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/leo/Gabriel_Loreno.webp", name: "Gabriel Loreno" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/leo/Gabriel_Loreño.webp", name: "Gabriel Loreño" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/leo/Ivy_G._Chavez.webp", name: "Ivy G. Chavez" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/leo/Jhoy_A._Ceno.webp", name: "Jhoy A. Ceno" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/leo/Jilamae_B._Pasadas.webp", name: "Jilamae B. Pasadas" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/leo/John_Michael_A._Samocino.webp", name: "John Michael A. Samocino" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/leo/John_Paul_L._Cumpio.webp", name: "John Paul L. Cumpio" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/leo/Joyce_M._Sabonsolin.webp", name: "Joyce M. Sabonsolin" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/leo/Julian_P._Cabal.webp", name: "Julian P. Cabal" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/leo/Julius_D._Olazo.webp", name: "Julius D. Olazo" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/leo/Justine_J._Moquia.webp", name: "Justine J. Moquia" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/leo/Kevin_G._Delgado.webp", name: "Kevin G. Delgado" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/leo/King_B._Cinco.webp", name: "King B. Cinco" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/leo/Louise_Joy_L._Almaden.webp", name: "Louise Joy L. Almaden" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/leo/Lovely_Joy_P._Lumbre.webp", name: "Lovely Joy P. Lumbre" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/leo/Ma._Jenny_A._Gabrera.webp", name: "Ma. Jenny A. Gabrera" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/leo/Madelyn_E._Garcia.webp", name: "Madelyn E. Garcia" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/leo/Madonna_C._Noveda.webp", name: "Madonna C. Noveda" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/leo/Mariel_A._Impuesto.webp", name: "Mariel A. Impuesto" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/leo/Meriam_O._Kininahan.webp", name: "Meriam O. Kininahan" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/leo/Nimfa_V._Impuesto.webp", name: "Nimfa V. Impuesto" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/leo/Princess_Diane_V._Ringor.webp", name: "Princess Diane V. Ringor" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/leo/Rainier_D._De_Paz.webp", name: "Rainier D. De Paz" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/leo/Rea_Daisylyn_A._Vallejos.webp", name: "Rea Daisylyn A. Vallejos" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/leo/Reymart_A._Gabrera.webp", name: "Reymart A. Gabrera" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/leo/Rhea_Mae_D._Baristo.webp", name: "Rhea Mae D. Baristo" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/leo/Rhea_Mae_D._Mecairan.webp", name: "Rhea Mae D. Mecairan" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/leo/Rica_Mae_M._Bisnar.webp", name: "Rica Mae M. Bisnar" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/leo/Rieza_Mae_C._De_Paz.webp", name: "Rieza Mae C. De Paz" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/leo/Sabelle_O._Tisado.webp", name: "Sabelle O. Tisado" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/leo/Shiena_Mae_L._Ritaga.webp", name: "Shiena Mae L. Ritaga" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/leo/Wesley_Franz_P._Cultura.webp", name: "Wesley Franz P. Cultura" }
+    ]
+   },
+   libra: {
+    title: "Libra Section",
+    motto: "Harmonious, Diplomatic, Graceful",
+    colorPrimary: "#16a085",
+    colorPrimaryDark: "#13806a",
+    students: [
+     { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/libra/A-J_F._Lucapa.webp", name: "A-J F. Lucapa" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/libra/Angel_C._Rosquites.webp", name: "Angel C. Rosquites" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/libra/Angela_P._Montaño.webp", name: "Angela P. Montaño" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/libra/Angela_P._montano.webp", name: "Angela P. montano" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/libra/Angelou_R._Ledesma.webp", name: "Angelou R. Ledesma" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/libra/Ariel_D._Manaog.webp", name: "Ariel D. Manaog" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/libra/Bernadeth_C._Evarrete.webp", name: "Bernadeth C. Evarrete" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/libra/Cesario_Jr._R._Barquin.webp", name: "Cesario Jr. R. Barquin" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/libra/Chandlier_Justin_Gumba.webp", name: "Chandlier Justin Gumba" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/libra/Chinalyn_L._Abenoja.webp", name: "Chinalyn L. Abenoja" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/libra/Christine_Margarette_M._Capilitan.webp", name: "Christine Margarette M. Capilitan" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/libra/Crisanto_C._Davido.webp", name: "Crisanto C. Davido" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/libra/Cymon_Jade_O._Sombilon.webp", name: "Cymon Jade O. Sombilon" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/libra/Danica_Albiar.webp", name: "Danica Albiar" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/libra/Dexter_P._De_Jesus.webp", name: "Dexter P. De Jesus" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/libra/Edelyn_A._Remollo.webp", name: "Edelyn A. Remollo" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/libra/Erica_Lien_A._Austero.webp", name: "Erica Lien A. Austero" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/libra/Francine_Mae_O._Felizarta.webp", name: "Francine Mae O. Felizarta" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/libra/Francis_D._Tan.webp", name: "Francis D. Tan" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/libra/Frenz_Jay_O._Felizarta.webp", name: "Frenz Jay O. Felizarta" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/libra/Fritz_N._Dioso.webp", name: "Fritz N. Dioso" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/libra/Gecel_G._Robes.webp", name: "Gecel G. Robes" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/libra/Girlie_Ann_T._Elmido.webp", name: "Girlie Ann T. Elmido" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/libra/Izzy_N._Robes.webp", name: "Izzy N. Robes" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/libra/Jake_C._Bulan.webp", name: "Jake C. Bulan" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/libra/Jenalyn_N._Ritaga.webp", name: "Jenalyn N. Ritaga" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/libra/Jerald_Jay_U._Del_Monte.webp", name: "Jerald Jay U. Del Monte" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/libra/Jessi_Han_M._Yongzon.webp", name: "Jessi Han M. Yongzon" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/libra/Jessie_Rose_B._Villote.webp", name: "Jessie Rose B. Villote" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/libra/Jhonel_P._Doromal.webp", name: "Jhonel P. Doromal" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/libra/Jiro_S._Colarte.webp", name: "Jiro S. Colarte" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/libra/John_Bert_S._Talisay.webp", name: "John Bert S. Talisay" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/libra/John_Robert_A._Petere.webp", name: "John Robert A. Petere" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/libra/Jonalyn_H._Cabal.webp", name: "Jonalyn H. Cabal" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/libra/Joshua_P._Ardiente.webp", name: "Joshua P. Ardiente" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/libra/Julia_Mae_B._Gimena.webp", name: "Julia Mae B. Gimena" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/libra/Justine_D._Aurella.webp", name: "Justine D. Aurella" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/libra/Kenniedy_C._Eria.webp", name: "Kenniedy C. Eria" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/libra/Kent_Anthony_T._Amago.webp", name: "Kent Anthony T. Amago" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/libra/Kim_Jiel_E._Argate.webp", name: "Kim Jiel E. Argate" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/libra/Lowella_V._Tomines.webp", name: "Lowella V. Tomines" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/libra/Mark_Kimberly_R._Villarama.webp", name: "Mark Kimberly R. Villarama" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/libra/Marlito_D._Tupaz.webp", name: "Marlito D. Tupaz" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/libra/Mary_Ann_N._Tubao.webp", name: "Mary Ann N. Tubao" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/libra/Mary_Grace_B._Urdaneta.webp", name: "Mary Grace B. Urdaneta" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/libra/Mia_D._Alvero.webp", name: "Mia D. Alvero" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/libra/Michaella_D._Balena.webp", name: "Michaella D. Balena" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/libra/Michaella_D._Baleña.webp", name: "Michaella D. Baleña" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/libra/Michelle_J._Alicer.webp", name: "Michelle J. Alicer" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/libra/Nelly_Fe_C._Duzar.webp", name: "Nelly Fe C. Duzar" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/libra/Nikki_R._Loreno.webp", name: "Nikki R. Loreno" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/libra/Nikki_R._Loreño.webp", name: "Nikki R. Loreño" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/libra/Princess_Lalaine_M._Balleno.webp", name: "Princess Lalaine M. Balleno" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/libra/Retchel_R._Echon.webp", name: "Retchel R. Echon" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/libra/Robert_Jr._E._Anonuevo.webp", name: "Robert Jr. E. Anonuevo" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/libra/Rodela_C._Dioso.webp", name: "Rodela C. Dioso" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/libra/Rosalinda_D._Villado.webp", name: "Rosalinda D. Villado" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/libra/Sara_Claire_A._Baquiro.webp", name: "Sara Claire A. Baquiro" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/libra/Shilby_Pulan.webp", name: "Shilby Pulan" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/libra/Stefany_R._Gelarzo.webp", name: "Stefany R. Gelarzo" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/libra/Terence_Jazen_A._Retaga.webp", name: "Terence Jazen A. Retaga" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/libra/Wenje_May_H._Yanag.webp", name: "Wenje May H. Yanag" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/libra/Zander_C._Bigoy.webp", name: "Zander C. Bigoy" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/libra/Zebastian_A._Cinco.webp", name: "Zebastian A. Cinco" }
+    ]
+   },
+   sagittarius: {
+    title: "Sagittarius Section",
+    motto: "Adventurous, Optimistic, Free-Spirited",
+    colorPrimary: "#e67e22",
+    colorPrimaryDark: "#d35400",
+    students: [
+     { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/saguitarius/Adeliza_D._Mendoza.webp", name: "Adeliza D. Mendoza" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/saguitarius/Alexander_Sebugon.webp", name: "Alexander Sebugon" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/saguitarius/Alyssa_Mae_R._Lopez.webp", name: "Alyssa Mae R. Lopez" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/saguitarius/Alysza_B._Colarte.webp", name: "Alysza B. Colarte" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/saguitarius/Angelica_C._Poliquit.webp", name: "Angelica C. Poliquit" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/saguitarius/Anika_Leigh_Arias.webp", name: "Anika Leigh Arias" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/saguitarius/Ariane_C._Cabal.webp", name: "Ariane C. Cabal" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/saguitarius/Ashly_A._Lambonao.webp", name: "Ashly A. Lambonao" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/saguitarius/Aya_Lorain_Y._Laher.webp", name: "Aya Lorain Y. Laher" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/saguitarius/Cristel_Anne_V._Deles.webp", name: "Cristel Anne V. Deles" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/saguitarius/Daisyrie_S._Degollacion.webp", name: "Daisyrie S. Degollacion" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/saguitarius/Divine_M._Beyong.webp", name: "Divine M. Beyong" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/saguitarius/Eljay_D._Enano.webp", name: "Eljay D. Enano" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/saguitarius/Erica_T._Pedro.webp", name: "Erica T. Pedro" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/saguitarius/Glecy_Mae_R._Tagra.webp", name: "Glecy Mae R. Tagra" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/saguitarius/Harold_Alavera.webp", name: "Harold Alavera" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/saguitarius/Jackie_P._Diaz.webp", name: "Jackie P. Diaz" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/saguitarius/James_Braile_D._Cabero.webp", name: "James Braile D. Cabero" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/saguitarius/Jasmine_A._Paler.webp", name: "Jasmine A. Paler" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/saguitarius/Jeannica_Rose_E._Manito.webp", name: "Jeannica Rose E. Manito" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/saguitarius/Jemart_Loreno.webp", name: "Jemart Loreno" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/saguitarius/Jemart_Loreño.webp", name: "Jemart Loreño" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/saguitarius/Jemel_Dagcutan.webp", name: "Jemel Dagcutan" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/saguitarius/Jerry_Jr._P._San_Juan.webp", name: "Jerry Jr. P. San Juan" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/saguitarius/John_Nikko_A._Adaya.webp", name: "John Nikko A. Adaya" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/saguitarius/John_Rey_O._Algodon.webp", name: "John Rey O. Algodon" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/saguitarius/John_Reynald_G._Boticalao.webp", name: "John Reynald G. Boticalao" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/saguitarius/Jomer_C._Dandoy.webp", name: "Jomer C. Dandoy" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/saguitarius/Joseph_Benedict_T._Rendon.webp", name: "Joseph Benedict T. Rendon" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/saguitarius/Joshua_H._De_Leon.webp", name: "Joshua H. De Leon" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/saguitarius/Joshua_M._Alegre.webp", name: "Joshua M. Alegre" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/saguitarius/Justin_H._De_Leon.webp", name: "Justin H. De Leon" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/saguitarius/Kean_M._Laurea.webp", name: "Kean M. Laurea" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/saguitarius/King_Jhon_B._Agravante.webp", name: "King Jhon B. Agravante" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/saguitarius/Lester_Jade_B._Fernandez.webp", name: "Lester Jade B. Fernandez" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/saguitarius/Lucille_Anne_R._Loyaga.webp", name: "Lucille Anne R. Loyaga" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/saguitarius/Lyka_I._Mendoza.webp", name: "Lyka I. Mendoza" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/saguitarius/Maivie_D._Loreno.webp", name: "Maivie D. Loreno" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/saguitarius/Maivie_D._Loreño.webp", name: "Maivie D. Loreño" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/saguitarius/Marichelle_D._Barbo.webp", name: "Marichelle D. Barbo" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/saguitarius/Marielle_C._Bonife.webp", name: "Marielle C. Bonife" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/saguitarius/Mark_Jupiter_S._Comunsad.webp", name: "Mark Jupiter S. Comunsad" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/saguitarius/Marlon_Jr._G._Reas.webp", name: "Marlon Jr. G. Reas" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/saguitarius/Marnie_Chin_Joy_C._Robin.webp", name: "Marnie Chin Joy C. Robin" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/saguitarius/Merriam_Webster_D._Tolo.webp", name: "Merriam Webster D. Tolo" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/saguitarius/Myra_R._Meras.webp", name: "Myra R. Meras" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/saguitarius/Paolo_N._Atienza.webp", name: "Paolo N. Atienza" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/saguitarius/Princes_Mae_N._Marasigan.webp", name: "Princes Mae N. Marasigan" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/saguitarius/Reina_G._Adolfo.webp", name: "Reina G. Adolfo" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/saguitarius/Rheanae_T._Lonquias.webp", name: "Rheanae T. Lonquias" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/saguitarius/Robert_P._Gonzaga.webp", name: "Robert P. Gonzaga" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/saguitarius/Rochelle_Canane.webp", name: "Rochelle Canane" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/saguitarius/Rodilyn_D._Tano.webp", name: "Rodilyn D. Tano" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/saguitarius/Roxane_O._Cayasan.webp", name: "Roxane O. Cayasan" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/saguitarius/Shera_Mae_Gwyn_J._Pacia.webp", name: "Shera Mae Gwyn J. Pacia" }
+    ]
+   },
+   taurus: {
+    title: "Taurus Section",
+    motto: "Steadfast, Grounded, Nurturing",
+    colorPrimary: "#27ae60",
+    colorPrimaryDark: "#219653",
+    students: [
+     { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/taurus/Alkhilies_V._Tingcungco.webp", name: "Alkhilies V. Tingcungco" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/taurus/Andrie_Ken_C._Donayre.webp", name: "Andrie Ken C. Donayre" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/taurus/Angelou_B._Montana.webp", name: "Angelou B. Montana" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/taurus/Angelou_B._Montaña,_.webp", name: "Angelou B. Montaña, " },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/taurus/Arianne_Mae_V._Austero.webp", name: "Arianne Mae V. Austero" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/taurus/Chris_John_D._Mayola.webp", name: "Chris John D. Mayola" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/taurus/Chrizia_Mae_G._Poliquit.webp", name: "Chrizia Mae G. Poliquit" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/taurus/Emmarvin_L._Belanigue.webp", name: "Emmarvin L. Belanigue" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/taurus/Haide_M._Maico.webp", name: "Haide M. Maico" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/taurus/JOSE,_ARCH.webp", name: "JOSE, ARCH" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/taurus/Jan_Rey_R._Saladaga.webp", name: "Jan Rey R. Saladaga" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/taurus/Jay-R_E._Bulilan.webp", name: "Jay-R E. Bulilan" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/taurus/Jeremie_Kelario.webp", name: "Jeremie Kelario" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/taurus/Jerry_Veneracion.webp", name: "Jerry Veneracion" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/taurus/Jery_C._Mendova.webp", name: "Jery C. Mendova" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/taurus/Jeve_A._Aluyog.webp", name: "Jeve A. Aluyog" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/taurus/Jhon_Carlo_D._Velarde.webp", name: "Jhon Carlo D. Velarde" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/taurus/Jhon_Kevin_Boticalao.webp", name: "Jhon Kevin Boticalao" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/taurus/Jhonril_F._Canuto.webp", name: "Jhonril F. Canuto" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/taurus/John_Mier_P._Tubesa.webp", name: "John Mier P. Tubesa" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/taurus/John_Ray_C._Manlangit.webp", name: "John Ray C. Manlangit" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/taurus/John_Rich_R._Loreño.webp", name: "John Rich R. Loreño" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/taurus/John_Rich_R._Lorino.webp", name: "John Rich R. Lorino" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/taurus/Joshua_L._Luzon.webp", name: "Joshua L. Luzon" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/taurus/Jovanie_V._Lagumbay.webp", name: "Jovanie V. Lagumbay" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/taurus/Jovanne_N._Nedera.webp", name: "Jovanne N. Nedera" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/taurus/Joyce_P._Garcia.webp", name: "Joyce P. Garcia" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/taurus/Justine_Kier_L._Sanchez.webp", name: "Justine Kier L. Sanchez" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/taurus/Juvy_M._Anadia.webp", name: "Juvy M. Anadia" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/taurus/Kent_Jerick_L._Palomar.webp", name: "Kent Jerick L. Palomar" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/taurus/Kiven_F._Partosa.webp", name: "Kiven F. Partosa" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/taurus/Laica_Jhen_Quinco.webp", name: "Laica Jhen Quinco" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/taurus/Lealyn_M._Corbes.webp", name: "Lealyn M. Corbes" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/taurus/Marian_Rose_S._Carrozo.webp", name: "Marian Rose S. Carrozo" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/taurus/Mark_Justin_Nyl_G._Quimbo.webp", name: "Mark Justin Nyl G. Quimbo" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/taurus/Mark_Louise_M._Robenta.webp", name: "Mark Louise M. Robenta" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/taurus/Marwin_T._Regis.webp", name: "Marwin T. Regis" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/taurus/Mary_Faith_A._Balili.webp", name: "Mary Faith A. Balili" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/taurus/Mary_Joy_P._Ligaton.webp", name: "Mary Joy P. Ligaton" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/taurus/Princess_Marie_D._Navarro.webp", name: "Princess Marie D. Navarro" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/taurus/Ram_Nicko_C._Begonte.webp", name: "Ram Nicko C. Begonte" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/taurus/Reymon_C._Elmido.webp", name: "Reymon C. Elmido" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/taurus/Reymond_T._Gacita.webp", name: "Reymond T. Gacita" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/taurus/Rosabel_C._Andales.webp", name: "Rosabel C. Andales" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/taurus/Shan_Andrew_L._Tisado.webp", name: "Shan Andrew L. Tisado" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/taurus/Shyra_Mae_Dean_Asis.webp", name: "Shyra Mae Dean Asis" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/taurus/Tristan_Jake_R._Mendiola.webp", name: "Tristan Jake R. Mendiola" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/taurus/Wilchard_E._Padero.webp", name: "Wilchard E. Padero" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/taurus/William_C._Morales.webp", name: "William C. Morales" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/taurus/Yashmien_Priya_Olea_G._Cerena.webp", name: "Yashmien Priya Olea G. Cerena" }
+    ]
+   },
+   virgo: {
+    title: "Virgo Section",
+    motto: "Precise, Analytical, Dependable",
+    colorPrimary: "#9b59b6",
+    colorPrimaryDark: "#8e44ad",
+    students: [
+     { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/virgo/ABUANA,_CAMILLE_.webp", name: "ABUANA, CAMILLE " },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/virgo/ALUYOG,_ERWIN_BLOBZ_.webp", name: "ALUYOG, ERWIN BLOBZ " },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/virgo/ALUYOG,_JEMWEL,_LONQUIAS.webp", name: "ALUYOG, JEMWEL, LONQUIAS" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/virgo/ALVERO,_JOSHUA,_NABONG.webp", name: "ALVERO, JOSHUA, NABONG" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/virgo/AMARILLE,_ARNNIE,_TORRES.webp", name: "AMARILLE, ARNNIE, TORRES" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/virgo/AMPONG,_DANIELLA,_PEREGRINO.webp", name: "AMPONG, DANIELLA, PEREGRINO" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/virgo/AQUINO,_CASSANDRA_KHAIN,_MABUTE.webp", name: "AQUINO, CASSANDRA KHAIN, MABUTE" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/virgo/AQUINO,_MA._JOAN,_TROYO.webp", name: "AQUINO, MA. JOAN, TROYO" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/virgo/ATIENZA,_ANGELA,_COSTIN.webp", name: "ATIENZA, ANGELA, COSTIN" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/virgo/ATIENZA,_ANGELICA,_COSTIN.webp", name: "ATIENZA, ANGELICA, COSTIN" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/virgo/BALONDO,_MATHEW_CALDA.webp", name: "BALONDO, MATHEW CALDA" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/virgo/BEYONG,_JOMEL.webp", name: "BEYONG, JOMEL" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/virgo/CALO-OY,_JOLLY,_LOQUINTE_.webp", name: "CALO-OY, JOLLY, LOQUINTE " },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/virgo/CENO,_JHUN_GERLEE_,_ALMINE.webp", name: "CENO, JHUN GERLEE , ALMINE" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/virgo/CRUZADA,_ALBERT,_GUBAT.webp", name: "CRUZADA, ALBERT, GUBAT" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/virgo/CUYSONA,_ZYRA,_DIAZ.webp", name: "CUYSONA, ZYRA, DIAZ" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/virgo/DIOSO,_JOHN_ALBERT.webp", name: "DIOSO, JOHN ALBERT" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/virgo/ERNE,_JEROME,_TOMINES_.webp", name: "ERNE, JEROME, TOMINES " },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/virgo/ESTALANI,_MARTIN,_MONTERO.webp", name: "ESTALANI, MARTIN, MONTERO" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/virgo/GACITA,_FREDERICK,_JR._NAVARRO.webp", name: "GACITA, FREDERICK, JR. NAVARRO" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/virgo/GACITA,_NOAH_BENEDICTO_III_SEBUGON.webp", name: "GACITA, NOAH BENEDICTO III SEBUGON" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/virgo/GALENZOGA,_ANGEL_MAE,_ATIENZA.webp", name: "GALENZOGA, ANGEL MAE, ATIENZA" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/virgo/GILBUENA,_NINO_ANGELO,_CABINTOY_.webp", name: "GILBUENA, NINO ANGELO, CABINTOY " },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/virgo/GILBUENA,_NIÑO_ANGELO,_CABINTOY_.webp", name: "GILBUENA, NIÑO ANGELO, CABINTOY " },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/virgo/GLORIA,_VILMA,_LORENO.webp", name: "GLORIA, VILMA, LORENO" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/virgo/GLORIA,_VILMA,_LOREÑO.webp", name: "GLORIA, VILMA, LOREÑO" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/virgo/JAMINAR,_ALRHEY,_MANDRAS_.webp", name: "JAMINAR, ALRHEY, MANDRAS " },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/virgo/JAVIER,_LOURAIN,_ADOLFO.webp", name: "JAVIER, LOURAIN, ADOLFO" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/virgo/JUSTIMBASTE,_KAREN,_.webp", name: "JUSTIMBASTE, KAREN, " },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/virgo/LABARES,_ANGELIKA,_QUEROBIN_.webp", name: "LABARES, ANGELIKA, QUEROBIN " },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/virgo/LEDESMA,_ANTONIO,_ROSQUITES.webp", name: "LEDESMA, ANTONIO, ROSQUITES" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/virgo/LLEVE,_WILMAR,_BOLANO.webp", name: "LLEVE, WILMAR, BOLANO" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/virgo/LLEVE,_WILMAR,_BOLAÑO.webp", name: "LLEVE, WILMAR, BOLAÑO" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/virgo/LUMA-AS,_JURY_JEAN,_PECITAS.webp", name: "LUMA-AS, JURY JEAN, PECITAS" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/virgo/MAICO,_FRANCIS_ARTHUR,_URGEL.webp", name: "MAICO, FRANCIS ARTHUR, URGEL" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/virgo/MALAREJES,_LORENCE,_ALCASODA.webp", name: "MALAREJES, LORENCE, ALCASODA" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/virgo/MANSINADEZ,_DARYLLE,_DUMAGING.webp", name: "MANSINADEZ, DARYLLE, DUMAGING" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/virgo/MONTON,_MARIO,_MURILLO.webp", name: "MONTON, MARIO, MURILLO" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/virgo/NAVARRO,_CYRA_JAY,_MAJARAS.webp", name: "NAVARRO, CYRA JAY, MAJARAS" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/virgo/NAVARRO,_ROGIE,_CANUTO.webp", name: "NAVARRO, ROGIE, CANUTO" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/virgo/PALLAR,_JEMUEL,_ALVARES.webp", name: "PALLAR, JEMUEL, ALVARES" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/virgo/PARAN,_PRINCE_CARL,_AZUCENA_.webp", name: "PARAN, PRINCE CARL, AZUCENA " },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/virgo/PENARANDA,_KRISFHE,_OLENDAN.webp", name: "PENARANDA, KRISFHE, OLENDAN" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/virgo/PERJES,_MA_CRISTINE,_TOMINES.webp", name: "PERJES, MA CRISTINE, TOMINES" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/virgo/PEÑARANDA,_KRISFHE,_OLENDAN.webp", name: "PEÑARANDA, KRISFHE, OLENDAN" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/virgo/QUITAIN,_AERON,_VILLARIN_.webp", name: "QUITAIN, AERON, VILLARIN " },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/virgo/REGIS,_AYHEZA_MAE,_ALLONAR.webp", name: "REGIS, AYHEZA MAE, ALLONAR" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/virgo/REMANES,_LENALYN,_COMUNSAD.webp", name: "REMANES, LENALYN, COMUNSAD" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/virgo/Rhenee_Rose_R._Sugbo.webp", name: "Rhenee Rose R. Sugbo" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/virgo/SERVANA,_ANGEL,_GACITA.webp", name: "SERVANA, ANGEL, GACITA" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/virgo/SERVAÑA,_ANGEL,_GACITA.webp", name: "SERVAÑA, ANGEL, GACITA" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/virgo/TABURADA,_SARAH_MAY.webp", name: "TABURADA, SARAH MAY" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/virgo/TALISAY,_JOHN_MARK,_SANCHEZ_.webp", name: "TALISAY, JOHN MARK, SANCHEZ " },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/virgo/TEROY,_MARIELLE,_PAMIN.webp", name: "TEROY, MARIELLE, PAMIN" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/virgo/TOBIAS,_AVRIL,_CARDINAL_.webp", name: "TOBIAS, AVRIL, CARDINAL " },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/virgo/TOROTORO,_GIALYN,_ASA.webp", name: "TOROTORO, GIALYN, ASA" },
+  { img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/virgo/VEROS,_JELLO,_GAY.webp", name: "VEROS, JELLO, GAY" }
+    ]
+   }
+
+
+};
+
+// 🏆 Shared achievements (works across sections)
+//✅ Change here
 const achievements = {
-  "Aira B. Delon": ["Leadership Award", "Best in Filipino", "Peer Mentor of the Year", "Values Excellence"],
-  "Ashley A. Rinos": ["Math Olympiad Winner hahahahaha", "Art Excellence Award", "Most Creative Project", "Leadership Award", "Athlete of the Year", "Science Fair Finalist", "Debate Semi-Finalist", "Community Service Star", "Best in English"],
-  "Allison Fate P. Dalugdugan": ["Best in English", "Leadership Award", "Science Fair Champion", "Research Awardee", "Quiz Bee Runner-up"],
-  "Adrian D. Gallos": ["Athlete of the Year", "Community Service Award", "Sportsmanship Award", "Captain’s Award"],
-  "Aaron P. Atienza": ["Most Improved Student", "Math Olympiad Winner", "STEM Advocate"],
-  "Althea Genesis S. Tarinque": ["Leadership Award", "Peer Tutor of the Year", "Values Excellence"]
+  "Aaron P. Atienza": ["Most Improved Student", "Math Olympiad Winner"],
+  "Allison Fate P. Dalugdugan": ["Best in English", "Leadership Award", "Science Fair Champion"],
+  "Adrian D. Gallos": ["Athlete of the Year", "Community Service Award"],
+  "Ashley A. Riños": [
+    "Most Creative Project", "Most Improved Student",
+    "Leadership Award", "Athlete of the Year",
+    "Outstanding Collaboration", "Digital Media Innovation",
+    "Best Portfolio", "Spirit of ANHS Award", "bobo"
+  ],
+  "Christian James D. Reas": ["Programming Contest Winner", "Debate Champion"],
+  "Cherry Ann B. Adonis": ["Art Excellence Award"]
 };
+
+//✅ Change here
 const otherAwards = {
-  "Most Improved Student": ["Aaron P. Atienza", "April Jean E. Delgado", "Ashley A. Rinos"],
-  "Leadership Award": ["Aira B. Delon", "Allison Fate P. Dalugdugan", "Althea Genesis S. Tarinque", "Ashley A. Rinos"],
-  "Athlete of the Year": ["Adrian D. Gallos", "Darwin S. Castro", "Ashley A. Rinos"],
-  "Art Excellence Award": ["Ashley A. Rinos", "Cherry Ann B. Adonis"],
-  "Science Fair Champion": ["Allison Fate P. Dalugdugan", "Anghelo L. Olita","Arianne Mae V. Austero"]
+  "Most Improved Student": ["Aaron P. Atienza", "April Jean E. Delgado", "Ashley A. Riños"],
+  "Leadership Award": ["Allison Fate P. Dalugdugan", "Althea Genesis S. Tarinque", "Ashley A. Riños"],
+  "Athlete of the Year": ["Adrian D. Gallos", "Darwin S. Castro", "Ashley A. Riños"],
+  "Art Excellence Award": ["Ashley A. Riños", "Cherry Ann B. Adonis"],
+  "Science Fair Champion": ["Allison Fate P. Dalugdugan", "Anghelo L. Olita", "Ashley A. Riños"],
+  "haha": ["Ashley A. Riños"]
 };
-const speeches = [
-  {
-    name: "Dr. Maria Santos",
-    status: "Principal",
-    img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/libra/Frenz_Jay_O._Felizarta.webp",
-    message: "To the graduating class of 2025, you have shown remarkable resilience and dedication throughout your journey at ANHS-SH..."
-  },
-  {
-    name: "John Reyes",
-    status: "Student Council Secretary",
-    img: "https://via.placeholder.com/150",
-    message: "Fellow students, what a journey it has been! From early morning classes to late-night study sessions..."
-  },
-  {
-    name: "Aira B. Delon",
-    status: "Class Valedictorian",
-    img: "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/aries/Aira_B._Delon.webp",
-    message: "Standing before you today is not just the culmination of years of hard work, but a testament to the power of unity..."
-  },
-  {
-    name: "John Reyes",
-    status: "Student Council Secretary",
-    img: "https://via.placeholder.com/150",
-    message: "Fellow students, what a journey it has been! From early morning classes to late-night study sessions..."
-  }
-];
-const memories = [
-  "https://via.placeholder.com/400x300/e3f2fd/4a69bd?text=School+Building",
-  "https://cached-file-link.jhondumanhog.workers.dev/files/anhs-sh-2025/libra/Frenz_Jay_O._Felizarta.webp",
-  "https://via.placeholder.com/400x300/e8f5e9/2e7d32?text=Science+Fair",
-  "https://via.placeholder.com/400x300/fff8e1/ff8f00?text=Arts+Exhibition",
-  "anhs-school.jpg",
-  "https://via.placeholder.com/400x300/ffebee/e91e63?text=Christmas+Party",
-  "https://via.placeholder.com/400x300/e0f7fa/0277bd?text=Debate+Competition",
-  "https://via.placeholder.com/400x300/fbe9e7/ff5722?text=Volunteer+Activity",
-  "https://via.placeholder.com/400x300/ede7f6/5e35b1?text=Graduation+Practice",
-  "https://via.placeholder.com/400x300/dcedc8/689f38?text=Sports+Day",
-  "https://via.placeholder.com/400x300/ffecb3/f57f17?text=Career+Day",
-  "https://via.placeholder.com/400x300/c8e6c9/2e7d32?text=Alumni+Day",
-  "https://via.placeholder.com/400x300/b3e5fc/0277bd?text=Flag+Ceremony"
-];
-const graduationLyrics = `
-We walked these halls with dreams so wide,
-Through every storm, we stood with pride.
-From morning bells to sunset cheers,
-We faced our hopes, we faced our fears.
-Now caps fly high, hearts beat as one,
-Our chapter ends—but not our run.
-ANHS-SH, you shaped our way,
-We’ll carry you in all we say.
-So here’s to friends, to teachers true,
-To every laugh, to all we knew.
-Though paths may part, our bond stays strong—
-Graduates of 2025, we all belong.
-`;
-// 🔁 Normalize names helper
+
+// 🔁 Merge awards into achievements (deduped)
+Object.entries(otherAwards).forEach(([award, names]) => {
+  names.forEach(rawName => {
+    const normName = normalize(rawName);
+    let matchedKey = Object.keys(achievements).find(k => normalize(k) === normName);
+    if (!matchedKey) {
+      matchedKey = rawName;
+      achievements[matchedKey] = [];
+    }
+    if (!achievements[matchedKey].some(a => normalize(a) === normalize(award))) {
+      achievements[matchedKey].push(award);
+    }
+  });
+});
+
 function normalize(str) {
-  return str.toLowerCase()
+  return str
+    .toLowerCase()
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
     .replace(/\s+/g, " ")
     .trim();
 }
-function findSection(studentName) {
-  for (const [section, list] of Object.entries(students)) {
-    if (list.some(s => normalize(s.name) === normalize(studentName))) {
-      return section;
-    }
-  }
-  return "Unknown";
+
+// 🎨 Apply section theme
+function applySectionTheme(sectionKey) {
+  const sec = sectionsData[sectionKey];
+  const root = document.documentElement;
+  root.style.setProperty('--primary', sec.colorPrimary);
+  root.style.setProperty('--primary-dark', sec.colorPrimaryDark);
+  root.style.setProperty('--secondary', sec.colorPrimary.replace('#', '#') + 'cc');
+  document.getElementById('section-title').textContent = sec.title;
+  document.getElementById('section-motto').textContent = sec.motto;
+  document.getElementById('students-title').textContent = `Meet Our ${sec.title.split(' ')[0]} Stars`;
+  document.getElementById('page-title').textContent = `${sec.title} — ANHS-SH 2025`;
+  document.getElementById('footer-section').textContent = sec.title.split(' ')[0];
+  document.querySelector('.nav-logo').innerHTML = `<i class="fas fa-graduation-cap"></i> ${sec.title}`;
 }
-// ✅ Scroll locking
-function lockScroll(lock = true) {
-  if (lock) {
-    const scrollY = window.scrollY;
-    document.body.style.position = 'fixed';
-    document.body.style.top = `-${scrollY}px`;
-    document.body.style.width = '100%';
-    document.body.setAttribute('data-scroll-y', scrollY);
-  } else {
-    const scrollY = document.body.getAttribute('data-scroll-y') || 0;
-    document.body.style.position = '';
-    document.body.style.top = '';
-    document.body.style.width = '';
-    window.scrollTo(0, parseInt(scrollY));
-    document.body.removeAttribute('data-scroll-y');
-  }
-}
-// 📟 Hamburger & Dropdown JS
-document.addEventListener('DOMContentLoaded', () => {
-  const hamburger = document.getElementById('hamburger');
-  const navLinks = document.getElementById('navLinks');
-  const dropdownBtns = document.querySelectorAll('.dropdown-btn');
-  hamburger.addEventListener('click', () => {
-    const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
-    hamburger.setAttribute('aria-expanded', !isExpanded);
-    navLinks.classList.toggle('active');
-    hamburger.innerHTML = isExpanded 
-      ? '<i class="fas fa-bars"></i>' 
-      : '<i class="fas fa-times"></i>';
-  });
-  navLinks.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      navLinks.classList.remove('active');
-      hamburger.setAttribute('aria-expanded', 'false');
-      hamburger.innerHTML = '<i class="fas fa-bars"></i>';
-    });
-  });
-  dropdownBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const content = btn.nextElementSibling;
-      const isExpanded = btn.getAttribute('aria-expanded') === 'true';
-      dropdownBtns.forEach(otherBtn => {
-        if (otherBtn !== btn) {
-          otherBtn.setAttribute('aria-expanded', 'false');
-          otherBtn.nextElementSibling.classList.remove('active');
-        }
-      });
-      btn.setAttribute('aria-expanded', !isExpanded);
-      content.classList.toggle('active');
-    });
-  });
-  document.addEventListener('click', (e) => {
-    if (!e.target.closest('.dropdown') && !e.target.closest('.dropdown-btn')) {
-      dropdownBtns.forEach(btn => {
-        btn.setAttribute('aria-expanded', 'false');
-        btn.nextElementSibling.classList.remove('active');
-      });
-    }
-  });
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      navLinks.classList.remove('active');
-      hamburger.setAttribute('aria-expanded', 'false');
-      hamburger.innerHTML = '<i class="fas fa-bars"></i>';
-      dropdownBtns.forEach(btn => {
-        btn.setAttribute('aria-expanded', 'false');
-        btn.nextElementSibling.classList.remove('active');
-      });
-    }
-  });
-});
-// ✅ NEW: Enhanced createResponsiveCarousel (replaces old one)
-function createResponsiveCarousel(items, renderItem, opts = {}) {
-  const {
-    autoplayInterval = 4000,
-    visibleCountFn = () => (window.innerWidth < 480 ? 1 : (window.innerWidth < 768 ? 2 : 3)),
-    ariaLabel = "Carousel",
-    // ⚠️ Force grouping — fix dot count issue
-    snapToIndividual = false // 🔥 Set to false always; use grouping
-  } = opts;
 
-  const wrapper = document.createElement('div');
-  wrapper.className = 'carousel-wrapper';
-  wrapper.setAttribute('aria-label', ariaLabel);
-  wrapper.setAttribute('role', 'region');
-  wrapper.setAttribute('tabindex', '0');
+// 🖥️ Fullscreen modal
+function openFullscreenImageModal(src, altText) {
+  const fullscreenModal = document.getElementById('fullscreenImageModal');
+  const fullscreenImg = document.getElementById('fullscreenImg');
+  fullscreenImg.src = src;
+  fullscreenImg.alt = altText || 'Student photo';
+  fullscreenModal.classList.add('active');
+  document.body.style.overflow = 'hidden';
 
-  const track = document.createElement('div');
-  track.style.display = 'flex';
-  track.style.gap = '1rem';
-  track.style.alignItems = 'flex-start';
-  track.style.transition = 'transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1)';
-  track.style.width = 'fit-content';
-
-  const indicators = document.createElement('div');
-  indicators.style.display = 'flex';
-  indicators.style.justifyContent = 'center';
-  indicators.style.marginTop = '0.75rem';
-  indicators.style.gap = '0.4rem';
-  indicators.style.flexWrap = 'wrap';
-
-  let currentIndex = 0;
-  let autoplay;
-  let cardWidth = 250;
-  let gap = 16;
-  let isAnimating = false;
-
-  // 📏 Update dimensions on resize
-  function updateCardDimensions() {
-    const containerWidth = wrapper.clientWidth || window.innerWidth * 0.95;
-    gap = parseFloat(getComputedStyle(track).gap) || 16;
-    const visible = Math.max(1, visibleCountFn());
-    cardWidth = (containerWidth - gap * (visible - 1)) / visible;
-  }
-
-  // 🔁 Clamp index to valid group index
-  function getValidIndex(idx, visible) {
-    const maxIndex = Math.max(0, items.length - visible);
-    return Math.min(Math.max(0, idx), maxIndex);
-  }
-
-  // ➡️ Go to *group* index (not item index)
-  function goToSlide(idx, animate = true) {
-    if (isAnimating && animate) return;
-    const visible = Math.max(1, visibleCountFn());
-    idx = getValidIndex(idx, visible);
-    currentIndex = idx;
-
-    if (animate) {
-      isAnimating = true;
-      track.style.transition = 'transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1)';
-    } else {
-      track.style.transition = 'none';
-    }
-
-    const translateX = -(currentIndex * (cardWidth + gap));
-    track.style.transform = `translateX(${translateX}px)`;
-
-    if (animate) setTimeout(() => isAnimating = false, 450);
-    updateIndicators();
-  }
-
-  function next() {
-    const visible = Math.max(1, visibleCountFn());
-    if (currentIndex < items.length - visible) goToSlide(currentIndex + 1);
-  }
-
-  function prev() {
-    if (currentIndex > 0) goToSlide(currentIndex - 1);
-  }
-
-  // 🖼️ Render track
-  function renderItems() {
-    track.innerHTML = '';
-    items.forEach((item, idx) => {
-      const slide = document.createElement('div');
-      slide.style.flex = '0 0 auto';
-      slide.style.width = `${cardWidth}px`;
-      const content = renderItem(item, idx);
-      slide.appendChild(content);
-      track.appendChild(slide);
-    });
-    // Ensure track is wide enough
-    track.style.width = `${items.length * (cardWidth + gap)}px`;
-  }
-
-  // ••• Dots: group-based, not item-based
-  function updateIndicators() {
-    indicators.innerHTML = '';
-    const visible = Math.max(1, visibleCountFn());
-    const totalGroups = Math.max(1, Math.ceil(items.length / visible));
-    for (let i = 0; i < totalGroups; i++) {
-      const dot = document.createElement('button');
-      dot.type = 'button';
-      dot.setAttribute('aria-label', `Go to group ${i + 1}`);
-      dot.style.width = '10px';
-      dot.style.height = '10px';
-      dot.style.borderRadius = '50%';
-      dot.style.border = 'none';
-      dot.style.background = (i === Math.floor(currentIndex / visible)) ? 'var(--primary)' : '#ccc';
-      dot.style.cursor = 'pointer';
-      dot.onclick = () => goToSlide(i * visible);
-      indicators.appendChild(dot);
-    }
-  }
-
-  // ▶️ Buttons
-  const prevBtn = document.createElement('button');
-  prevBtn.className = 'carousel-btn';
-  prevBtn.style.left = '-20px';
-  prevBtn.innerHTML = '<i class="fas fa-chevron-left"></i>';
-  prevBtn.onclick = prev;
-  prevBtn.setAttribute('aria-label', 'Previous');
-
-  const nextBtn = document.createElement('button');
-  nextBtn.className = 'carousel-btn';
-  nextBtn.style.right = '-20px';
-  nextBtn.innerHTML = '<i class="fas fa-chevron-right"></i>';
-  nextBtn.onclick = next;
-  nextBtn.setAttribute('aria-label', 'Next');
-
-  // 🖐️ TOUCH SWIPE + MOMENTUM (enhanced)
-  let startX = 0, currentX = 0, velX = 0, startTime = 0;
-  let rafId = null;
-  let isDragging = false;
-
-  function onTouchStart(e) {
-    if (e.touches?.length !== 1) return;
-    stopAutoplay();
-    startX = currentX = e.touches[0].clientX;
-    startTime = Date.now();
-    isDragging = true;
-    if (rafId) cancelAnimationFrame(rafId);
-    track.style.transition = 'none';
-  }
-
-  function onTouchMove(e) {
-    if (!isDragging) return;
-    const x = e.touches[0].clientX;
-    const dx = x - startX;
-    const dt = Date.now() - startTime;
-    velX = dt > 0 ? (x - currentX) / dt : 0;
-    currentX = x;
-
-    // Allow slight overscroll (elastic)
-    const baseX = -currentIndex * (cardWidth + gap);
-    const elasticity = 0.6;
-    const overdx = Math.abs(dx) > 100 ? dx * elasticity : dx;
-    track.style.transform = `translateX(${baseX + overdx}px)`;
-  }
-
-  function onTouchEnd() {
-    if (!isDragging) return;
-    isDragging = false;
-
-    const dx = currentX - startX;
-    const dt = Date.now() - startTime;
-    const visible = Math.max(1, visibleCountFn());
-    const threshold = cardWidth * 0.3;
-
-    // Momentum fling: if fast swipe, jump 1 group
-    if (Math.abs(velX) > 0.8 || Math.abs(dx) > threshold) {
-      if (velX < -0.8 || dx < -threshold) next();
-      else if (velX > 0.8 || dx > threshold) prev();
-      else goToSlide(currentIndex);
-    } else {
-      goToSlide(currentIndex);
-    }
-
-    if (items.length > visible) startAutoplay();
-  }
-
-  // Add listeners (support both touch & pointer for tablets)
-  track.addEventListener('touchstart', onTouchStart, { passive: true });
-  track.addEventListener('touchmove', onTouchMove, { passive: true });
-  track.addEventListener('touchend', onTouchEnd, { passive: true });
-  track.addEventListener('touchcancel', () => isDragging = false, { passive: true });
-
-  // 🎹 Keyboard nav
-  wrapper.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowRight') next();
-    else if (e.key === 'ArrowLeft') prev();
-  });
-
-  // 🔄 Resize handler
-  const onResize = () => {
-    updateCardDimensions();
-    renderItems();
-    goToSlide(currentIndex, false);
+  const close = () => {
+    fullscreenModal.classList.remove('active');
+    document.body.style.overflow = '';
+    document.removeEventListener('keydown', escHandler);
   };
 
-  // ▶️ Autoplay
-  function startAutoplay() {
-    stopAutoplay();
-    if (items.length <= 1) return;
-    autoplay = setInterval(() => {
-      if (!document.hidden) {
-        const visible = Math.max(1, visibleCountFn());
-        if (currentIndex >= items.length - visible) goToSlide(0);
-        else next();
-      }
-    }, autoplayInterval);
-  }
-  function stopAutoplay() {
-    if (autoplay) clearInterval(autoplay);
-  }
-
-  wrapper.addEventListener('mouseenter', stopAutoplay);
-  wrapper.addEventListener('mouseleave', startAutoplay);
-
-  // 🔧 Init
-  updateCardDimensions();
-  renderItems();
-  goToSlide(0, false);
-  updateIndicators();
-
-  window.addEventListener('resize', onResize);
-  if (items.length > 1) startAutoplay();
-
-  wrapper.appendChild(prevBtn);
-  wrapper.appendChild(track);
-  wrapper.appendChild(nextBtn);
-  if (items.length > visibleCountFn()) {
-    wrapper.appendChild(indicators);
-  }
-
-  return {
-    element: wrapper,
-    goToSlide: (idx) => goToSlide(idx),
-    next,
-    prev,
-    destroy: () => {
-      stopAutoplay();
-      window.removeEventListener('resize', onResize);
-      if (rafId) cancelAnimationFrame(rafId);
-    }
-  };
+  const escHandler = (e) => { if (e.key === 'Escape') close(); };
+  document.addEventListener('keydown', escHandler);
+  fullscreenModal.onclick = (e) => { if (e.target === fullscreenModal) close(); };
+  document.getElementById('closeFullscreenModal').onclick = close;
 }
 
-// 📊 renderCombinedAchievements — unchanged
-function renderCombinedAchievements() {
-  const div = document.getElementById('all-achievements');
-  div.innerHTML = '';
-  const studentsWithPersonalAwards = {};
-  Object.entries(achievements).forEach(([name, awards]) => {
-    studentsWithPersonalAwards[name] = [...new Set(awards)];
-  });
-  Object.entries(otherAwards).forEach(([award, names]) => {
-    names.forEach(name => {
-      if (!studentsWithPersonalAwards[name]) studentsWithPersonalAwards[name] = [];
-      studentsWithPersonalAwards[name].push(award);
-    });
-  });
-  Object.keys(studentsWithPersonalAwards).forEach(name => {
-    studentsWithPersonalAwards[name] = [...new Set(studentsWithPersonalAwards[name])];
-  });
-  if (Object.keys(studentsWithPersonalAwards).length > 0) {
-    const header = document.createElement('div');
-    header.className = 'achievement-section-header';
-    header.innerHTML = `<h3><i class="fas fa-user-graduate"></i> Students with Personal Award Records</h3>`;
-    div.appendChild(header);
-    const gridContainer = document.createElement('div');
-    gridContainer.className = 'achievements-grid';
-    const sortedNames = Object.keys(achievements);
-    sortedNames.forEach(name => {
-      const awards = studentsWithPersonalAwards[name] || [];
-      const section = findSection(name);
-      const student = Object.values(students).flat().find(s => normalize(s.name) === normalize(name));
-      const imgUrl = student?.img?.trim() || '';
-      const card = document.createElement('div');
-      card.className = 'achievement-profile-card';
-      const awardsHTML = awards.map(a => `<li>${a}</li>`).join('');
-      card.innerHTML = `
-        <div class="card-img-wrapper">
-          <img src="${imgUrl || 'https://via.placeholder.com/180/e0e0e0/999999?text=No+Photo'}"
-               alt="${name}" loading="lazy"
-               onerror="this.src='https://via.placeholder.com/180/e0e0e0/999999?text=No+Photo'">
-        </div>
-        <h3 class="card-title">${name}</h3>
-        <p class="card-subtitle">${section ? `${section.charAt(0).toUpperCase() + section.slice(1)} • ` : ''}Class of 2025</p>
-        <div class="award-section">
-          <h3 style="color: var(--primary-dark); font-size: 1.15rem; margin-bottom: 0.75rem; font-weight: 700;">
-            <i class="fas fa-trophy"></i> Awards & Recognitions
-          </h3>
-          <div class="award-list">
-            <ul>${awardsHTML || '<li style="color:#888;font-style:italic;">No awards listed.</li>'}</ul>
-          </div>
-        </div>
-      `;
-      card.addEventListener('click', () => openStudentModal({ name, img: imgUrl, section }, section || 'Student'));
-      card.style.cursor = 'pointer';
-      gridContainer.appendChild(card);
-    });
-    div.appendChild(gridContainer);
-  }
-  const allAwardedNames = new Set();
-  Object.values(otherAwards).forEach(names => names.forEach(n => allAwardedNames.add(n)));
-  Object.keys(achievements).forEach(n => allAwardedNames.add(n));
-  const studentsOnlyInOtherAwards = Array.from(allAwardedNames).filter(name => !achievements.hasOwnProperty(name));
-  const groupedByAward = {};
-  Object.entries(otherAwards).forEach(([award, names]) => {
-    const onlyThese = names.filter(name => studentsOnlyInOtherAwards.includes(name));
-    if (onlyThese.length > 0) {
-      groupedByAward[award] = onlyThese;
-    }
-  });
-  if (Object.keys(groupedByAward).length > 0) {
-    const header = document.createElement('div');
-    header.className = 'achievement-section-header';
-    header.innerHTML = `<h3><i class="fas fa-medal"></i> Award by Category</h3>`;
-    div.appendChild(header);
-    const sortedAwardNames = Object.keys(groupedByAward).sort();
-    sortedAwardNames.forEach(awardName => {
-      const recipients = groupedByAward[awardName];
-      const card = document.createElement('div');
-      card.className = 'award-card';
-      card.style.borderLeft = '4px solid var(--accent)';
-      card.style.background = 'var(--glass-bg)';
-      card.style.padding = '1.25rem';
-      const recipientsHtml = recipients.map(name => {
-        const section = findSection(name);
-        const student = Object.values(students).flat().find(s => normalize(s.name) === normalize(name));
-        const imgUrl = student?.img?.trim() || '';
-        const displayName = `${name}${section ? ` (${section.charAt(0).toUpperCase() + section.slice(1)})` : ''}`;
-        return `
-          <button class="view-full-btn" style="margin:0.25rem;flex:1;min-width:140px;max-width:220px;"
-                  onclick="openStudentModal({name:'${name.replace(/'/g, "\\'")}', img:'${(imgUrl || '').replace(/'/g, "\\'")}', section:'${section}'}, '${section || 'Student'}')">
-            ${displayName}
-          </button>`;
-      }).join('');
-      card.innerHTML = `
-        <h3 style="margin:0 0 1rem;font-weight:700;color:var(--primary-dark);display:flex;align-items:center;gap:0.5rem;">
-          <i class="fas fa-award"></i> ${awardName}
-        </h3>
-        <div style="display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:flex-start;">
-          ${recipientsHtml}
-        </div>
-      `;
-      div.appendChild(card);
-    });
-  }
-  if (div.children.length === 0) {
-    div.innerHTML = '<p style="text-align:center;color:#888;"><i class="fas fa-info-circle"></i> No achievements or awards recorded.</p>';
-  }
-}
-// ✅ renderOverview — updated to use new carousel
-function renderOverview() {
-  const bannerContainer = document.getElementById('overview-school-banner');
-  bannerContainer.innerHTML = `
-    <div style="margin-bottom:2rem;border-radius:var(--radius-md);overflow:hidden;box-shadow:var(--shadow-md);position:relative;">
-      <img src="anhs-school.jpg"
-           alt="Angeles National High School – Senior High main building"
-           style="width:100%;height:auto;max-height:400px;object-fit:cover;display:block;"
-           loading="lazy"
-           onerror="this.src='https://via.placeholder.com/1200x400/e0e0e0/999999?text=School+Image+Unavailable'">
-      <div style="position:absolute;bottom:0;left:0;width:100%;background:linear-gradient(transparent, rgba(0,0,0,0.75));padding:1rem;color:white;text-align:center;font-weight:700;font-size:1.1rem;">
-        <i class="fas fa-school"></i> Angeles National High School – Senior High
-      </div>
-    </div>
-  `;
-  const ovStudents = document.getElementById('overview-students');
-  const studentCarousel = createResponsiveCarousel(
-    topStudents,
-    (student, idx) => {
-      const section = findSection(student.name);
-      const card = document.createElement('div');
-      card.className = 'card';
-      const safeImg = student.img?.trim() || 'https://via.placeholder.com/180/e0e0e0/999999?text=No+Photo';
-      card.innerHTML = `
-        <img src="${safeImg}" alt="${student.name}" loading="lazy"
-             onerror="this.src='https://via.placeholder.com/180/e0e0e0/999999?text=No+Photo'; this.style.display='block'">
-        <h4>${student.name}<br><small>${section.charAt(0).toUpperCase() + section.slice(1)}</small></h4>
-      `;
-      card.addEventListener('click', () => openStudentModal({ ...student, section }, section));
-      return card;
-    },
-    {
-      visibleCountFn: () => window.innerWidth < 480 ? 1 : (window.innerWidth < 768 ? 2 : 3),
-      snapToIndividual: true
-    }
-  );
-  ovStudents.innerHTML = '';
-  ovStudents.appendChild(studentCarousel.element);
-
-  const ovTeachers = document.getElementById('overview-teachers');
-  const visibleTeachers = teachers.slice(0, 10);
-  const teacherCarousel = createResponsiveCarousel(
-    visibleTeachers,
-    (teacher, idx) => {
-      const card = document.createElement('div');
-      card.className = 'card';
-      const safeImg = teacher.img?.trim() || 'https://via.placeholder.com/180/e0e0e0/999999?text=No+Photo';
-      card.innerHTML = `
-        <img src="${safeImg}" alt="${teacher.name}" loading="lazy"
-             onerror="this.src='https://via.placeholder.com/180/e0e0e0/999999?text=No+Photo'; this.style.display='block'">
-        <h4>${teacher.name}<br><small>${teacher.section_name || 'Advisor'}</small></h4>
-      `;
-      card.addEventListener('click', () => openStudentModal(teacher, 'Teacher'));
-      return card;
-    },
-    {
-      visibleCountFn: () => window.innerWidth < 480 ? 1 : (window.innerWidth < 768 ? 2 : 3),
-      snapToIndividual: true
-    }
-  );
-  ovTeachers.innerHTML = '';
-  ovTeachers.appendChild(teacherCarousel.element);
-
-  const topAchieverData = topStudents[0];
-  const sectionName = findSection(topAchieverData.name);
-  let topAchieverAwards = [];
-  const matchedKey = Object.keys(achievements).find(k => normalize(k) === normalize(topAchieverData.name));
-  if (matchedKey) topAchieverAwards = [...new Set(achievements[matchedKey])];
-  Object.entries(otherAwards).forEach(([award, rs]) => {
-    if (rs.some(r => normalize(r) === normalize(topAchieverData.name))) topAchieverAwards.push(award);
-  });
-  topAchieverAwards = [...new Set(topAchieverAwards)];
-  const topAchieverImg = topAchieverData.img?.trim() || 'https://via.placeholder.com/150/e0e0e0/999999?text=No+Photo';
-  const topAchieverCard = document.getElementById('top-achiever');
-  topAchieverCard.className = 'speech-card';
-  topAchieverCard.style.background = 'linear-gradient(135deg, #f8f9fa, #e9ecef)';
-  topAchieverCard.style.borderLeft = '4px solid var(--accent)';
-  topAchieverCard.innerHTML = `
-    <div style="display:flex;gap:1.25rem;align-items:center;flex-wrap:wrap;">
-      <div style="flex:0 0 100px;">
-        <img src="${topAchieverImg}" alt="${topAchieverData.name}" loading="lazy"
-            style="width:100px;height:100px;border-radius:50%;object-fit:cover;object-position:top;box-shadow:var(--shadow-md);">
-      </div>
-      <div style="text-align:left;flex:1;">
-        <h3 style="margin:0;color:var(--primary);display:flex;align-items:center;gap:0.5rem;">
-          <i class="fas fa-crown" style="color:gold;"></i> ${topAchieverData.name}
-        </h3>
-        <p style="margin:0.25rem 0;color:#666;font-size:0.95rem;">
-          ${sectionName.charAt(0).toUpperCase() + sectionName.slice(1)} • ${topAchieverAwards.length} Award${topAchieverAwards.length !== 1 ? 's' : ''}
-        </p>
-        <div style="margin-top:0.5rem;display:flex;flex-wrap:wrap;gap:0.3rem;max-height:3.5em;overflow:hidden;">
-          ${topAchieverAwards.slice(0,4).map(a => 
-            `<span style="background:#e3f2fd;color:#1976d2;padding:0.2rem 0.6rem;border-radius:20px;font-size:0.82rem;">${a}</span>`
-          ).join('')}
-          ${topAchieverAwards.length > 4 
-            ? `<span style="color:#666;font-size:0.85rem;">+${topAchieverAwards.length - 4} more</span>` 
-            : ''}
-        </div>
-        <button class="view-full-btn" style="margin-top:0.75rem;" id="topAchieverViewBtn">
-          <i class="fas fa-user-graduate"></i> View Full Profile
-        </button>
-      </div>
-    </div>
-  `;
-  document.getElementById('topAchieverViewBtn').onclick = () => {
-    openStudentModal({ ...topAchieverData, section: sectionName }, sectionName);
-  };
-
-  const featuredSpeechContainer = document.getElementById('featured-speech');
-  featuredSpeechContainer.innerHTML = `
-    <div id="speech-cards-container" style="display:flex;flex-wrap:wrap;gap:1.25rem;justify-content:center;"></div>
-  `;
-  const container = document.getElementById('speech-cards-container');
-  speeches.slice(0, 2).forEach((s, idx) => {
-    const card = document.createElement('div');
-    card.className = 'speech-card';
-    card.style.flex = '1 1 400px';
-    card.style.minWidth = '300px';
-    if (idx === 0) {
-      card.style.background = 'linear-gradient(135deg, #fff9f0, #fdf7e9)';
-      card.style.border = '1px solid #ffe0b2';
-    } else {
-      card.style.background = 'linear-gradient(135deg, #f0faff, #f5f9ff)';
-      card.style.border = '1px solid #bbdefb';
-    }
-    const borderColor = idx === 0 ? '#ffb300' : '#2196f3';
-    const label = idx === 0 ? "Principal's Address" : "Student Council Address";
-    card.innerHTML = `
-      <div style="display:flex;gap:1.25rem;align-items:center;margin-bottom:1rem;flex-wrap:wrap;">
-        <div style="flex:0 0 80px;">
-          <img src="${s.img}" alt="${s.name}" loading="lazy"
-              style="width:80px;height:80px;border-radius:50%;object-fit:cover;object-position:top;box-shadow:var(--shadow-md);border:3px solid #ffd54f;">
-        </div>
-        <div style="flex:1;text-align:left;">
-          <h3 style="margin:0;color:${idx === 0 ? '#e65100' : '#1565c0'};font-weight:800;">${s.name}</h3>
-          <p style="margin:0.25rem 0;color:#5d4037;font-weight:600;">${s.status}</p>
-          <div style="display:flex;gap:0.25rem;margin-top:0.3rem;">
-            <i class="fas fa-quote-left" style="color:${idx === 0 ? '#ffb300' : '#64b5f6'};font-size:0.9rem;"></i>
-            <span style="color:#9e9e9e;font-size:0.85rem;">${label}</span>
-          </div>
-        </div>
-      </div>
-      <p style="font-style:italic;line-height:1.7;color:#424242;border-left:3px solid ${borderColor};padding-left:1rem;margin:0.5rem 0;">
-        “${s.message.substring(0, 150)}${s.message.length > 150 ? '…' : ''}”
-      </p>
-      <button class="view-full-btn" style="margin-top:0.75rem;width:100%;"
-              onclick="showSection('speeches'); setTimeout(() => document.getElementById('speeches').scrollIntoView({behavior:'smooth'}), 100);">
-        <i class="fas fa-comments"></i> Read Full Speech
-      </button>
-    `;
-    container.appendChild(card);
-  });
-
-  const ovMem = document.getElementById('overview-memories');
-  const memToShow = memories.slice(0, 10);
-  const memoryCarousel = createResponsiveCarousel(
-    memToShow,
-    (url, idx) => {
-      const card = document.createElement('div');
-      card.className = 'memory-card';
-      const img = document.createElement('img');
-      img.src = url;
-      img.alt = `Memory ${idx + 1}`;
-      img.loading = 'lazy';
-      img.onerror = () => {
-        img.src = 'https://via.placeholder.com/400x300/e0e0e0/999999?text=Memory';
-        img.style.display = 'block';
-      };
-      card.appendChild(img);
-      card.addEventListener('click', () => openFullscreenModal(url, 'Memory'));
-      return card;
-    },
-    {
-      visibleCountFn: () => window.innerWidth < 480 ? 1 : (window.innerWidth < 768 ? 2 : 3),
-      snapToIndividual: true
-    }
-  );
-  ovMem.innerHTML = '';
-  ovMem.appendChild(memoryCarousel.element);
-
-  const teacherSeeMore = document.createElement('div');
-  teacherSeeMore.style.textAlign = 'center';
-  teacherSeeMore.style.marginTop = '1rem';
-  teacherSeeMore.innerHTML = `<button class="view-full-btn" onclick="showSection('teachers')"><i class="fas fa-chalkboard-teacher"></i> See All Teachers</button>`;
-  ovTeachers.appendChild(teacherSeeMore);
-
-  const memorySeeMore = document.createElement('div');
-  memorySeeMore.style.textAlign = 'center';
-  memorySeeMore.style.marginTop = '1rem';
-  memorySeeMore.innerHTML = `<button class="view-full-btn" onclick="showSection('memories')"><i class="fas fa-images"></i> See All Memories</button>`;
-  ovMem.appendChild(memorySeeMore);
-
-  const sectionLinks = document.createElement('div');
-  sectionLinks.style.margin = '1.5rem 0';
-  sectionLinks.style.textAlign = 'center';
-  sectionLinks.innerHTML = `
-    <h4 style="color: var(--primary); margin-bottom: 0.75rem;">📚 Browse All Sections</h4>
-    <div style="display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:center;">
-      ${Object.keys(students).map(sec => `
-        <a href="?section=${sec}" target="_blank"
-           style="padding:0.4rem 0.8rem;background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:20px;text-decoration:none;color:var(--primary-dark);font-weight:600;transition:var(--transition);"
-           onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='var(--shadow-sm)'"
-           onmouseout="this.style.transform=''; this.style.boxShadow=''"
-        >
-          ${sec.charAt(0).toUpperCase() + sec.slice(1)}
-        </a>
-      `).join('')}
-    </div>
-  `;
-  ovStudents.appendChild(sectionLinks);
-}
-
-function renderTeachers() {
-  const div = document.getElementById('all-teachers');
-  div.innerHTML = '';
-  teachers.forEach(t => {
-    const card = document.createElement('div');
-    card.className = 'card';
-    const safeImg = t.img?.trim() || 'https://via.placeholder.com/180/e0e0e0/999999?text=No+Photo';
-    card.innerHTML = `
-      <img src="${safeImg}" alt="${t.name}" loading="lazy"
-           onerror="this.src='https://via.placeholder.com/180/e0e0e0/999999?text=No+Photo'; this.style.display='block'">
-      <h4>${t.name}<br><small>${t.section_name || 'Advisor'}</small></h4>
-    `;
-    card.addEventListener('click', () => openStudentModal(t, 'Teacher'));
-    div.appendChild(card);
-  });
-}
-function renderSpeeches() {
-  const div = document.getElementById('all-speeches');
-  div.innerHTML = '';
-  speeches.forEach(s => {
-    const card = document.createElement('div');
-    card.className = 'speech-card';
-    card.innerHTML = `
-      <h3>${s.name} — ${s.status}</h3>
-      <img src="${s.img}" alt="${s.name}" loading="lazy"
-           style="width:100px;height:100px;border-radius:50%;display:block;margin:0 auto 1rem; object-fit: cover;"
-           onerror="this.src='https://via.placeholder.com/100/e0e0e0/999999?text=?'">
-      <p>${s.message}</p>
-    `;
-    div.appendChild(card);
-  });
-}
-function renderMemories() {
-  const div = document.getElementById('all-memories');
-  div.innerHTML = '';
-  memories.forEach(url => {
-    const card = document.createElement('div');
-    card.className = 'memory-card';
-    const img = document.createElement('img');
-    img.src = url;
-    img.alt = "Memory";
-    img.loading = "lazy";
-    img.onerror = () => {
-      img.src = 'https://via.placeholder.com/400x300/e0e0e0/999999?text=Memory';
-      img.style.display = 'block';
-    };
-    card.appendChild(img);
-    card.addEventListener('click', () => openFullscreenModal(url, 'Memory'));
-    div.appendChild(card);
-  });
-}
-function renderSong() {
-  document.getElementById('grad-song').textContent = graduationLyrics.trim();
-}
-// 🚀 Initialize
-document.addEventListener('DOMContentLoaded', () => {
-  renderOverview();
-  renderCombinedAchievements();
-  renderTeachers();
-  renderSpeeches();
-  renderMemories();
-  renderSong();
-});
-
-// ✅ MODAL CONTROLLERS (unchanged)
-function openStudentModal(student, sectionName = "Student") {
-  const src = student.img?.trim() || '';
-  const modalImg = document.getElementById('modal-img');
-  const modalName = document.getElementById('modal-name');
-  const modalSubtitle = document.getElementById('modal-subtitle');
-  const modalAwards = document.getElementById('modal-awards');
-  modalImg.src = src || 'https://via.placeholder.com/180/e0e0e0/999999?text=No+Photo';
-  modalImg.alt = student.name;
-  modalName.textContent = student.name;
-  modalSubtitle.textContent = `${sectionName} • Class of 2025`;
-  let allAwards = [];
-  const matchedKey = Object.keys(achievements).find(k => normalize(k) === normalize(student.name));
-  if (matchedKey) {
-    allAwards = [...new Set(achievements[matchedKey])];
-  }
-  Object.entries(otherAwards).forEach(([award, recipients]) => {
-    if (recipients.some(r => normalize(r) === normalize(student.name))) {
-      allAwards.push(award);
-    }
-  });
-  allAwards = [...new Set(allAwards)];
-  const awardsHTML = allAwards.length
-    ? `<div class="award-section"><h3><i class="fas fa-trophy"></i> Awards & Recognitions</h3><div class="award-list"><ul>${allAwards.map(a => `<li>${a}</li>`).join('')}</ul></div></div>`
-    : `<p class="no-awards"><i class="fas fa-info-circle"></i> No awards listed.</p>`;
-  const isPlaceholder = !src || src.includes('placeholder') || src.includes('No+Photo');
-  const actions = !isPlaceholder
-    ? `<div style="display:flex;gap:0.75rem;justify-content:center;margin-top:1.25rem;flex-wrap:wrap">
-          <button class="view-full-btn" onclick="openFullscreenModal('${src.replace(/'/g, "\\'")}', '${student.name.replace(/'/g, "\\'")}')"><i class="fas fa-expand"></i> View Full</button>
-          <button class="view-full-btn" onclick="downloadImage('${src.replace(/'/g, "\\'")}', '${student.name.replace(/'/g, "\\'")}')"><i class="fas fa-download"></i> Download</button>
-        </div>`
-    : '';
-  modalAwards.innerHTML = awardsHTML + actions;
-  document.getElementById('studentModal').classList.add('active');
-  lockScroll(true);
-}
-function closeModal() {
-  document.getElementById('studentModal').classList.remove('active');
-  lockScroll(false);
-}
-document.getElementById('closeModal').onclick = closeModal;
-document.getElementById('studentModal').onclick = (e) => {
-  if (e.target === document.getElementById('studentModal')) closeModal();
-};
-function openFullscreenModal(src, alt) {
-  const img = document.getElementById('fullscreenImg');
-  img.src = src;
-  img.alt = alt;
-  document.getElementById('fullscreenModal').classList.add('active');
-  lockScroll(true);
-}
-function closeFullscreenModal() {
-  document.getElementById('fullscreenModal').classList.remove('active');
-  lockScroll(false);
-}
-document.getElementById('closeFullscreenBtn').onclick = closeFullscreenModal;
-document.getElementById('fullscreenModal').onclick = (e) => {
-  if (e.target === document.getElementById('fullscreenModal')) closeFullscreenModal();
-};
-function downloadImage(url, name) {
+function downloadImage(url, filename) {
   const a = document.createElement('a');
   a.href = url;
-  const safeName = name.replace(/[^a-z0-9_\sñÑáéíóúÁÉÍÓÚ]/gi, '_').replace(/\s+/g, '_');
-  a.download = `${safeName}.jpg`;
+  a.download = filename;
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
 }
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') {
-    if (document.getElementById('studentModal').classList.contains('active')) closeModal();
-    if (document.getElementById('fullscreenModal').classList.contains('active')) closeFullscreenModal();
+
+// 🧠 MAIN LOGIC — Optimized for large sections
+document.addEventListener('DOMContentLoaded', () => {
+  const sectionKey = getSectionFromURL();
+  const sectionData = sectionsData[sectionKey];
+
+  // 1. Apply theme
+  applySectionTheme(sectionKey);
+
+  // 2. Populate dropdown
+  const dropdownContent = document.getElementById('dropdownContent');
+  dropdownContent.innerHTML = Object.entries(sectionsData).map(([key, data]) => 
+    `<a href="?section=${key}" role="menuitem">
+      <i class="fas fa-star"></i> ${data.title}
+    </a>`
+  ).join('');
+
+  // 3. 🚀 SMART INFINITE SCROLL GRID (12 per batch)
+  const container = document.getElementById('students-container');
+  const students = sectionData.students;
+  const batchSize = 12;
+  let loadedCount = 0;
+
+  // Batch loading sentinel
+  const sentinel = document.createElement('div');
+  sentinel.style.height = '1px';
+  sentinel.style.margin = '0';
+  container.appendChild(sentinel);
+
+  // Batch loader
+  let isLoadingBatch = false;
+  const batchObserver = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting && !isLoadingBatch && loadedCount < students.length) {
+      loadNextBatch();
+    }
+  }, { rootMargin: '200px' });
+  batchObserver.observe(sentinel);
+
+  // Per-image lazy loader
+  const imgObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const img = entry.target;
+        if (img.dataset.src) {
+          img.src = img.dataset.src;
+          img.removeAttribute('data-src');
+          img.onload = () => img.style.filter = 'none';
+          img.onerror = () => {
+            img.style.filter = 'none';
+            img.parentElement.style.opacity = '0.75';
+            img.src = 'https://via.placeholder.com/180/e0e0e0/999999?text=No+Photo';
+          };
+          imgObserver.unobserve(img);
+        }
+      }
+    });
+  }, { rootMargin: '100px' });
+
+  function loadNextBatch() {
+    if (isLoadingBatch) return;
+    isLoadingBatch = true;
+
+    const start = loadedCount;
+    const end = Math.min(start + batchSize, students.length);
+    const fragment = document.createDocumentFragment();
+
+    for (let i = start; i < end; i++) {
+      const student = students[i];
+      const card = document.createElement('div');
+      card.className = 'student-card';
+      card.setAttribute('role', 'button');
+      card.setAttribute('tabindex', '0');
+      card.setAttribute('aria-label', `View profile of ${student.name}`);
+      
+      card.innerHTML = `
+        <img 
+          data-src="${student.img.trim()}" 
+          alt="${student.name}"
+          loading="lazy"
+          decoding="async"
+          style="filter: blur(4px); transition: filter 0.3s;"
+          onerror="this.style.filter='none'; this.parentElement.style.opacity='0.75'"
+        >
+        <h3>${student.name}</h3>
+      `;
+
+      card.addEventListener('click', () => openModal(student));
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openModal(student);
+        }
+      });
+
+      fragment.appendChild(card);
+    }
+
+    container.insertBefore(fragment, sentinel);
+    loadedCount = end;
+
+    // Lazy-load images in this batch
+    const batchImages = container.querySelectorAll(`.student-card:nth-child(n+${start + 1}):nth-child(-n+${end}) img[data-src]`);
+    batchImages.forEach(img => imgObserver.observe(img));
+
+    isLoadingBatch = false;
+
+    if (loadedCount >= students.length) {
+      batchObserver.unobserve(sentinel);
+    }
+  }
+
+  // Load first batch
+  loadNextBatch();
+
+  // 4. 🎯 Modal logic
+  const modal = document.getElementById('studentModal');
+  const closeModalBtn = document.getElementById('closeModal');
+
+  function closeModal() {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  window.openModal = function(student) {
+    const imgSrc = student.img.trim(); //  CRITICAL: fixes broken URLs
+    const modalImg = document.getElementById('modal-img');
+    const modalName = document.getElementById('modal-name');
+    const modalSubtitle = document.getElementById('modal-subtitle');
+    const modalAwards = document.getElementById('modal-awards');
+
+    modalImg.src = imgSrc;
+    modalImg.alt = student.name;
+    modalName.textContent = student.name;
+    modalSubtitle.textContent = `${sectionData.title.split(' ')[0]} Section • Class of 2025`;
+
+    const normName = normalize(student.name);
+    const matchedKey = Object.keys(achievements).find(k => normalize(k) === normName);
+    const awards = matchedKey 
+      ? [...new Set(achievements[matchedKey])].sort()
+      : [];
+
+    const awardsHTML = awards.length
+      ? `
+        <div class="award-section">
+          <h3><i class="fas fa-trophy"></i> Awards & Recognitions</h3>
+          <div class="award-list">
+            <ul>${awards.map(a => `<li>${a}</li>`).join('')}</ul>
+          </div>
+        </div>`
+      : `<p class="no-awards"><i class="fas fa-info-circle"></i> No awards listed.</p>`;
+
+    const isPlaceholder = !imgSrc || imgSrc.includes('placeholder.com') || imgSrc.includes('No+Photo');
+    const actionButtons = !isPlaceholder
+      ? `
+        <div style="display:flex;gap:0.75rem;justify-content:center;margin-top:1.25rem;flex-wrap:wrap">
+          <button class="view-full-btn" id="viewFullscreenBtn" aria-label="View full-size image">
+            <i class="fas fa-expand"></i> View Full Image
+          </button>
+          <button class="view-full-btn" id="downloadBtn" aria-label="Download image">
+            <i class="fas fa-download"></i> Download Image
+          </button>
+        </div>`
+      : '';
+
+    modalAwards.innerHTML = awardsHTML + actionButtons;
+    
+    if (!isPlaceholder) {
+      document.getElementById('viewFullscreenBtn')?.addEventListener('click', e => {
+        e.preventDefault();
+        openFullscreenImageModal(imgSrc, student.name);
+      });
+      document.getElementById('downloadBtn')?.addEventListener('click', e => {
+        e.preventDefault();
+        const safeName = student.name.replace(/\s+/g, '_').replace(/[^a-z0-9_ñÑáéíóúÁÉÍÓÚ\s]/gi, '');
+        downloadImage(imgSrc, `${safeName}.jpg`);
+      });
+    }
+
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => closeModalBtn.focus(), 100);
+  };
+
+  closeModalBtn.addEventListener('click', closeModal);
+  modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
+  });
+
+  //  Dropdown (unchanged)
+  const dropdownBtn = document.getElementById('dropdownBtn');
+  function toggleDropdown() {
+    const isExpanded = dropdownBtn.getAttribute('aria-expanded') === 'true';
+    dropdownBtn.setAttribute('aria-expanded', !isExpanded);
+  }
+  dropdownBtn.addEventListener('click', (e) => { e.stopPropagation(); toggleDropdown(); });
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.dropdown')) dropdownBtn.setAttribute('aria-expanded', 'false');
+  });
+  dropdownBtn.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleDropdown(); }
+    else if (e.key === 'Escape') { dropdownBtn.setAttribute('aria-expanded', 'false'); dropdownBtn.focus(); }
+    else if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      dropdownBtn.setAttribute('aria-expanded', 'true');
+      setTimeout(() => dropdownContent.querySelector('a')?.focus(), 50);
+    }
+  });
+  dropdownContent.addEventListener('keydown', (e) => {
+    const items = Array.from(dropdownContent.querySelectorAll('a'));
+    const idx = items.indexOf(document.activeElement);
+    if (e.key === 'ArrowDown') { e.preventDefault(); (items[idx + 1] || items[0])?.focus(); }
+    else if (e.key === 'ArrowUp') { e.preventDefault(); (items[idx - 1] || items[items.length - 1])?.focus(); }
+    else if (e.key === 'Escape') { dropdownBtn.setAttribute('aria-expanded', 'false'); dropdownBtn.focus(); }
+  });
+  dropdownContent.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => dropdownBtn.setAttribute('aria-expanded', 'false'));
+  });
+});
+
+
+
+// ===== Back to Top Button Logic =====
+const backToTopBtn = document.getElementById('backToTopBtn');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 400) {
+    backToTopBtn.classList.add('show');
+  } else {
+    backToTopBtn.classList.remove('show');
   }
 });
-// 📑 Section navigation
-function showSection(id) {
-  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-  const targetSection = document.getElementById(id);
-  if (targetSection) {
-    targetSection.classList.add('active');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
+backToTopBtn.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// ===== Social Sharing =====
+const copyLinkBtn = document.getElementById('copyLinkBtn');
+const shareNativeBtn = document.getElementById('shareNativeBtn');
+
+// Show native share button only if supported
+if (navigator.share) {
+  shareNativeBtn.style.display = 'flex';
 }
+
+copyLinkBtn.addEventListener('click', async () => {
+  try {
+    await navigator.clipboard.writeText(window.location.href);
+    copyLinkBtn.innerHTML = '<i class="fas fa-check"></i>';
+    setTimeout(() => {
+      copyLinkBtn.innerHTML = '<i class="fas fa-link"></i>';
+    }, 2000);
+  } catch (err) {
+    alert('Failed to copy link. Please copy manually.');
+  }
+});
+
+shareNativeBtn.addEventListener('click', async () => {
+  try {
+    await navigator.share({
+      //✅ Change here
+      title: 'ANHS-SH 2025 Yearbook',
+      text: '🎓 Check out our digital yearbook — memories, achievements, and more!',
+      url: window.location.href
+    });
+  } catch (err) {
+    if (err.name !== 'AbortError') {
+      // Fallback: copy if share fails
+      copyLinkBtn.click();
+    }
+  }
+});
+
 </script>
+
 </body>
 </html>
